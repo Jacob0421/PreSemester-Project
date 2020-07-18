@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
@@ -6,3 +7,13 @@
   </PropertyGroup>
 
 </Project>
+=======
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>PreSemester_Project</RootNamespace>
+  </PropertyGroup>
+
+</Project>
+>>>>>>> b79d4d7746a14669b0ed6cf4b19aa9c7ed5e5a04
