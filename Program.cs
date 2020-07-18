@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,31 +24,3 @@ namespace PreSemester_Project
                 });
     }
 }
-=======
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
-namespace PreSemester_Project
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
-}
->>>>>>> b79d4d7746a14669b0ed6cf4b19aa9c7ed5e5a04
