@@ -1,0 +1,34 @@
+﻿@model PreSemester_Project.Models.Volunteer
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Volunteer Management System</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="" asp-append-version="true"/>   <!--Add css -->
+    </head>
+
+    <div id="header">
+        <h1 class="display-4">Welcome to the Volunteer Management System</h1>
+    </div>
+
+    <form asp-action="Login" method="post">
+        <p>
+            <label asp-for="Username">Username:</label>
+            <input asp-for="Username" />
+        </p>
+        <p>
+            <label asp-for="Password">Password:</label>
+            <input asp-for="Password" />
+        </p>
+
+        <button type="submit">Login</button>
+    </form>
+
+</html>
