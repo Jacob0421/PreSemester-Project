@@ -1,4 +1,4 @@
-﻿@model PreSemester_Project.Models.Volunteer
+﻿@model PreSemester_Project.Models.Temp
 
 @{
     ViewData["Title"] = "Home Page";
@@ -14,21 +14,39 @@
         <link rel="stylesheet" type="text/css" href="" asp-append-version="true"/>   <!--Add css -->
     </head>
 
-    <div id="header">
-        <h1 class="display-4">Welcome to the Volunteer Management System</h1>
-    </div>
+    <body>
+        <div id="header">
+            <h1 class="display-4">Welcome to the Volunteer Management System</h1>
+        </div>
 
-    <form asp-action="Login" method="post">
-        <p>
-            <label asp-for="Username">Username:</label>
-            <input asp-for="Username" />
-        </p>
-        <p>
-            <label asp-for="Password">Password:</label>
-            <input asp-for="Password" />
-        </p>
+        @ViewBag.error
 
-        <button type="submit">Login</button>
-    </form>
+        <form method="post" action="@Url.Action("Login", "Home")">
+            <table>
+                <tr>
+                    <td>
+                        @Html.Label("Username:")
+                    </td>
+                    <td>
+                        @Html.TextBox("Username")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Label("Password")
+                    </td>
+                    <td>
+                        @Html.Password("Password")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Login" />
+                    </td>
+                </tr>
+            </table>
+        </form>
 
+
+    </body>
 </html>

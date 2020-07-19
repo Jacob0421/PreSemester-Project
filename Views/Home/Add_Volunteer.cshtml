@@ -7,67 +7,89 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Add a Volunteer</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="" asp-append-version="true"/>   <!--Add css -->
-</head>
+    <head>
+        <title>Add a Volunteer</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="" asp-append-version="true"/>   <!--Add css -->
+    </head>
 
-<div id="header">
-    <h1 class="display-4">Welcome to the Volunteer Management System</h1>
-    <!-- Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core.</a>. -->
-</div>
+    <body>
+        <div id="header">
+            <h1 class="display-4">Welcome to the Volunteer Management System</h1>
+            <!-- Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core.</a>. -->
+        </div>
+    </body>
+</html>
 <form asp-action="AddVolunteer" method="post">
-        <label asp-for="FirstName">First Name:</label>
-        <input asp-for="FirstName" /><br>
-        <label asp-for="LastName">Last Name:</label>
-        <input asp-for="LastName" /><br />
-        <label asp-for="Username">Username:</label>
-        <input asp-for="Username" /><br />
-        <label asp-for="Password">Password:</label>
-        <input asp-for="Password" /><br />
-        <label asp-for="CenterPreferences">Center Preferences:</label>
-        <input asp-for="CenterPreferences" /><br />
-        <label asp-for="Skills">Skills and Interests:</label>
-        <input asp-for="Skills" /><br />
-        <label asp-for="Availablity">Availability Times:</label>
-        <input asp-for="Availablity" /><br />
-        <label asp-for="StreetAddress">Street Address:</label>
-        <input asp-for="StreetAddress" /><br />
-        <label asp-for="HomePhone">Home Phone:</label>
-        <input asp-for="HomePhone" /><br />
-        <label asp-for="CellPhone">Cell Phone:</label>
-        <input asp-for="CellPhone" /><br />
-        <label asp-for="WorkPhone">Work Phone:</label>
-        <input asp-for="WorkPhone" /><br />
-        <label asp-for="Email">Email:</label>
-        <input asp-for="Email" /><br />
-        <label asp-for="EducationalBackground">Educational Background:</label>
-        <input asp-for="EducationalBackground" /><br />
-        <label asp-for="CurrentLicenses">Current Licenses:</label>
-        <input asp-for="CurrentLicenses" /><br />
-        <label asp-for="EmergencyContactAddress">Emergency Contact Name:</label>
-        <input asp-for="EmergencyContactName" /><br />
-        <label asp-for="EmergencyContactHomePhone">Emergency Contact Home Phone:</label>
-        <input asp-for="EmergencyContactHomePhone" /><br />
-        <label asp-for="EmergencyContactWorkPhone">Emergency Contact Work Phone:</label>
-        <input asp-for="EmergencyContactWorkPhone" /><br />
-        <label asp-for="EmergencyContactEmail">Emergency Contact Email:</label>
-        <input asp-for="EmergencyContactEmail" /><br />
-        <label asp-for="EmergencyContactAddress">Emergency Contact Address:</label>
-        <input asp-for="EmergencyContactAddress" /><br />
-        <label asp-for="DriversLicense">Is there a drivers license on file?</label>
-        <input asp-for="DriversLicense" /><br />
-        <label asp-for="SocialSecurity">Is there a social security card on file?</label>
-        <input asp-for="SocialSecurity" /><br />
-        <label asp-for="ApprovalStatus">Volunteer Approval Status:</label>
-        <input asp-for="ApprovalStatus" /><br />
+    <label asp-for="FirstName">First Name:</label>
+    <input asp-for="FirstName" /><br>
+
+    <label asp-for="LastName">Last Name:</label>
+    <input asp-for="LastName" /><br />
+
+    <label asp-for="Username">Username:</label>
+    <input asp-for="Username" /><br />
+
+    <label asp-for="Password">Password:</label>
+    <input asp-for="Password" /><br />
     
+    <label asp-for="CenterPreferences">Center Preferences:</label>
+    <input asp-for="CenterPreferences" /><br />
+    
+    <label asp-for="Skills">Skills and Interests:</label>
+    <input asp-for="Skills" /><br />
+    
+    <label asp-for="Availablity">Availability Times:</label>
+    <input asp-for="Availablity" /><br />
+    
+    <label asp-for="StreetAddress">Street Address:</label>
+    <input asp-for="StreetAddress" /><br />
+    
+    <label asp-for="HomePhone">Home Phone:</label>
+    <input asp-for="HomePhone" /><br />
+    
+    <label asp-for="CellPhone">Cell Phone:</label>
+    <input asp-for="CellPhone" /><br />
+    
+    <label asp-for="WorkPhone">Work Phone:</label>
+    <input asp-for="WorkPhone" /><br />
+    
+    <label asp-for="Email">Email:</label>
+    <input asp-for="Email" /><br />
+    
+    <label asp-for="EducationalBackground">Educational Background:</label>
+    <input asp-for="EducationalBackground" /><br />
+    
+    <label asp-for="CurrentLicenses">Current Licenses:</label>
+    <input asp-for="CurrentLicenses" /><br />
+    
+    <label asp-for="EmergencyContactAddress">Emergency Contact Name:</label>
+    <input asp-for="EmergencyContactName" /><br />
+    
+    <label asp-for="EmergencyContactHomePhone">Emergency Contact Home Phone:</label>
+    <input asp-for="EmergencyContactHomePhone" /><br />
+    
+    <label asp-for="EmergencyContactWorkPhone">Emergency Contact Work Phone:</label>
+    <input asp-for="EmergencyContactWorkPhone" /><br />
+    
+    <label asp-for="EmergencyContactEmail">Emergency Contact Email:</label>
+    <input asp-for="EmergencyContactEmail" /><br />
+    
+    <label asp-for="EmergencyContactAddress">Emergency Contact Address:</label>
+    <input asp-for="EmergencyContactAddress" /><br />
+    
+    <label asp-for="DriversLicense">Is there a drivers license on file?</label>
+    <input asp-for="DriversLicense" /><br />
+    
+    <label asp-for="SocialSecurity">Is there a social security card on file?</label>
+    <input asp-for="SocialSecurity" /><br />
+    
+    <label asp-for="ApprovalStatus">Volunteer Approval Status:</label>
+    <input asp-for="ApprovalStatus" /><br />
+
 
     <button type="submit">Add Volunteer</button>
     <button type="submit" name="Cancel">Cancel</button>
 
 </form>
-
-</html>
