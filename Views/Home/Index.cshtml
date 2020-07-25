@@ -1,4 +1,4 @@
-﻿@model PreSemester_Project.Models.Volunteer
+﻿@model PreSemester_Project.Models.Temp
 
 @{
     ViewData["Title"] = "Home Page";
@@ -19,7 +19,7 @@
             <h1 class="display-4">Welcome to the Volunteer Management System</h1>
         </div>
 
-        @*@ViewBag.error*@
+        @ViewBag.error
 
         <form method="post" action="@Url.Action("Login", "Home")">
             <table>
