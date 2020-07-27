@@ -19,13 +19,17 @@
             <h1 class="display-4">Welcome to the Volunteer Management System</h1>
             <!-- Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core.</a>. -->
         </div>
+
+        <form method="post" action="@Url.Action("AddVolunteer", "Home")">
+            
+          
+
+            <input type="submit" value="AddVolunteer" />
+        </form>
     </body>
 </html>
-<form asp-action="AddVolunteer" method="post">
-    <label asp-for="FirstName">First Name:</label>
-    <input asp-for="FirstName" /><br>
 
-    <label asp-for="LastName">Last Name:</label>
+    @*<label asp-for="LastName">Last Name:</label>
     <input asp-for="LastName" /><br />
 
     <label asp-for="Username">Username:</label>
@@ -86,10 +90,6 @@
     <input asp-for="SocialSecurity" /><br />
     
     <label asp-for="ApprovalStatus">Volunteer Approval Status:</label>
-    <input asp-for="ApprovalStatus" /><br />
+    <input asp-for="ApprovalStatus" /><br />*@
 
 
-    <button type="submit">Add Volunteer</button>
-    <button type="submit" name="Cancel">Cancel</button>
-
-</form>
