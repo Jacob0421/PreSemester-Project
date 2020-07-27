@@ -148,4 +148,3 @@ C:\Users\Jacob\Github\PreSemester Project\bin\Debug\netcoreapp3.1\zh-Hant\Micros
 C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\PreSemester Project.csproj.CoreCompileInputs.cache
 C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\PreSemester Project.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\Landing.cshtml.g.cs
-C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\Volunteers.cshtml.g.cs

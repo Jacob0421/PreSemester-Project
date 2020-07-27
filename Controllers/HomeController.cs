@@ -27,6 +27,8 @@ namespace PreSemester_Project.Controllers
          * 
          * 
          */
+
+
         
         private readonly ILogger<HomeController> _logger;
 
@@ -35,15 +37,9 @@ namespace PreSemester_Project.Controllers
             _logger = logger;
         }
         
-        public ActionResult Index()
+        public IActionResult Index()
         {
-            List<tests> myList = new List<tests>();
-            myList.Add (new tests { firstName = "Jacob", SSN = 123});
-
-            Volunteer myVolunteer = new Volunteer();
-
-            myVolunteer.trying = myList;
-            return View(myVolunteer);
+            return View("Index");
         }
 
         [HttpPost]
@@ -72,6 +68,9 @@ namespace PreSemester_Project.Controllers
             //    ViewBag.error = "Invalid Credentials: Please re-enter.";
             //    return View("Index");
             //}
+
+
+            
         }
 
         public IActionResult Landing()
@@ -83,25 +82,27 @@ namespace PreSemester_Project.Controllers
         {
             return View("Add_Volunteer");
         }
-        
-        [HttpPost]
-        public ActionResult AddVolunteer(Volunteer Input)
-        {
-            if (ModelState.IsValid)
-            {
-                return View(Input);
-            }
-            else
-            {
-                return View();
-            }
-        }
 
         public IActionResult Privacy()
         {
             return View("Privacy");
         }
 
+        [HttpPost] //Need to fix this method
+        public IActionResult AddVolunteer(Volunteer obj, string Add, string Cancel)
+        {
+            //if (!string.IsNullOrEmpty(Add))
+            //{
+            //    ViewBag.Message = "Your volunteer was added successfully!";
+            //    return View("Index", obj);   //Need to change the view
+            //}
+            //if (!string.IsNullOrEmpty(Cancel))
+            //{
+            //    ViewBag.Message = "You volunteer was not added.";
+            //    return View("Index", obj);   //Need to change the view
+            //}
+            return View("index", "error");
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

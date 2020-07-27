@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<PreSemester_Project.Models.Volunteer>
+@model PreSemester_Project.Models.Volunteer;
 
 @{
     ViewData["Title"] = "Landing Page";
@@ -11,9 +11,7 @@
         
     </head>
     <body>
-        @Html.ActionLink("Add Volunteer", "Create")
-
-        <form asp-action="Index" method="post">
+        <form asp-action="Landing" method="post">
             <label for="AddVolunteers">Add Volunteers</label>
             <input type="radio" value="AddVolunteers" />
 
@@ -23,7 +21,6 @@
             <button type="submit">Submit</button>
         </form>
 
-
-
+        
     </body>
 </html>
