@@ -47,7 +47,7 @@ namespace PreSemester_Project.Controllers
         {
             // LOGIN FORM VALIDATION IS WORKING...
             // WILL UNCOMMENT TOWARDS END OF PROJECT
-            return View("Landing");
+            return View("Options");
 
             ///// taking in login form from index.cshtml and gathering variables
             //string username = (Form["UserName"].ToString());
@@ -87,6 +87,12 @@ namespace PreSemester_Project.Controllers
         {
             return View("Privacy");
         }
+
+          public IActionResult Options()
+        {
+            return View("Options");
+        }
+
 
         [HttpPost] //Need to fix this method
         public IActionResult AddVolunteer(Volunteer obj, string Add, string Cancel)
