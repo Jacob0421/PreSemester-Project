@@ -1,26 +1,59 @@
-﻿
-@model PreSemester_Project.Models.Volunteer;
+﻿@model IEnumerable<PreSemester_Project.Models.Volunteer>
 
 @{
-    ViewData["Title"] = "Landing Page";
+    ViewData["Title"] = "Landing";
 }
 
-<DOCTYPE! html>
-<html lang="en">
-    <head>
-        
-    </head>
-    <body>
-        <form asp-action="Landing" method="post">
-            <label for="AddVolunteers">Add Volunteers</label>
-            <input type="radio" value="AddVolunteers" />
+<h1>Landing</h1>
 
-            <label for="SearchVolunteers">Search Volunteers</label>
-            <input type="radio" value="SearchVolunteers" />
+@ViewBag.Update
 
-            <button type="submit">Submit</button>
-        </form>
 
-        
-    </body>
-</html>
+<p>
+</p>
+
+@using (@Html.BeginForm("Search", "Home", FormMethod.Get))
+{
+    <table>
+        <tr>
+            <td colspan="3">
+                <a asp-action="Create">Create New</a>
+            </td>
+            <td>@Html.TextBox("Key")</td>
+            <td><button type="submit">Search</button></td>
+        </tr>
+    </table>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id }, null) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

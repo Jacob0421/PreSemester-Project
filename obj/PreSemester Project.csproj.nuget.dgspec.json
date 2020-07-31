@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jacob\\Github\\PreSemester Project\\PreSemester Project.csproj": {}
+    "C:\\Users\\Jacob\\Github\\PreSemester-Project - Copy\\PreSemester Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jacob\\Github\\PreSemester Project\\PreSemester Project.csproj": {
+    "C:\\Users\\Jacob\\Github\\PreSemester-Project - Copy\\PreSemester Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jacob\\Github\\PreSemester Project\\PreSemester Project.csproj",
+        "projectUniqueName": "C:\\Users\\Jacob\\Github\\PreSemester-Project - Copy\\PreSemester Project.csproj",
         "projectName": "PreSemester Project",
-        "projectPath": "C:\\Users\\Jacob\\Github\\PreSemester Project\\PreSemester Project.csproj",
+        "projectPath": "C:\\Users\\Jacob\\Github\\PreSemester-Project - Copy\\PreSemester Project.csproj",
         "packagesPath": "C:\\Users\\Jacob\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jacob\\Github\\PreSemester Project\\obj\\",
+        "outputPath": "C:\\Users\\Jacob\\Github\\PreSemester-Project - Copy\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jacob\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -9,12 +9,14 @@ using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using PreSemester_Project.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel;
 
 namespace PreSemester_Project.Controllers
 {
     public class HomeController : Controller
     {
-        
+
         /*
          * 
          * Tentative process using the site
@@ -28,26 +30,32 @@ namespace PreSemester_Project.Controllers
          * 
          */
 
-
-        
         private readonly ILogger<HomeController> _logger;
+        private readonly IVolunteerRepository _volunteerRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IVolunteerRepository volunteerRepository)
         {
             _logger = logger;
-        }
-        
-        public IActionResult Index()
-        {
-            return View("Index");
+            _volunteerRepository = volunteerRepository;
         }
 
+        //working
+        public ViewResult Index()
+        {
+            return View();
+        }
+
+        // working
         [HttpPost]
         public ActionResult Login(IFormCollection Form)
         {
+            //adding a couple of items to list on start-up
+
+
+            return RedirectToAction("Landing");
+
             // LOGIN FORM VALIDATION IS WORKING...
             // WILL UNCOMMENT TOWARDS END OF PROJECT
-            return View("Landing");
 
             ///// taking in login form from index.cshtml and gathering variables
             //string username = (Form["UserName"].ToString());
@@ -70,43 +78,89 @@ namespace PreSemester_Project.Controllers
             //}
 
 
-            
+
         }
 
+        // working
         public IActionResult Landing()
         {
-            return View("Add_Volunteer");
+            var model = _volunteerRepository.GetAllVolunteers();
+
+            return View(model);
         }
 
-        public IActionResult Add_Volunteer()
+        // working
+        public ActionResult Create()
         {
-            return View("Add_Volunteer");
+            return View();
         }
+
+        // working
+        [HttpPost]
+        public RedirectToActionResult Create(Volunteer newVolunteer)
+        {
+            _volunteerRepository.Add(newVolunteer);
+            return RedirectToAction("Landing");
+        }
+
+        // working
+        [HttpGet]
+        public RedirectToActionResult Delete(int id)
+        {
+
+            Volunteer vol = _volunteerRepository.GetVolunteer(id);
+            Volunteer removed = _volunteerRepository.Remove(vol);
+
+            ViewBag.update = (removed.FirstName + " was deleted from the List of Volunteers.");
+
+            return RedirectToAction("Landing");
+        }
+
+        // working
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Volunteer toChange = _volunteerRepository.GetVolunteer(id);
+            ViewData.Model = toChange;
+
+            return View();
+        }
+
+        // working
+        [HttpPost]
+        public RedirectToActionResult Edit(Volunteer volChanges)
+        {
+
+            _volunteerRepository.Edit(volChanges);
+
+            return RedirectToAction("Landing");
+        }
+
+        // currently a WIP
+        //public ViewResult Details(int id)
+        //{
+        //    Volunteer model = _volunteerRepository.GetVolunteer(id);
+
+        //    return View(model);
+        //}
+
+
+        // currently a WIP
+        //[HttpPost]
+        //public ActionResult Search(string key)
+        //{
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {
             return View("Privacy");
         }
 
-        [HttpPost] //Need to fix this method
-        public IActionResult AddVolunteer(Volunteer obj, string Add, string Cancel)
-        {
-            //if (!string.IsNullOrEmpty(Add))
-            //{
-            //    ViewBag.Message = "Your volunteer was added successfully!";
-            //    return View("Index", obj);   //Need to change the view
-            //}
-            //if (!string.IsNullOrEmpty(Cancel))
-            //{
-            //    ViewBag.Message = "You volunteer was not added.";
-            //    return View("Index", obj);   //Need to change the view
-            //}
-            return View("index", "error");
-        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-} 
+}
