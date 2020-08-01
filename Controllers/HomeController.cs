@@ -14,7 +14,7 @@ namespace PreSemester_Project.Controllers
 {
     public class HomeController : Controller
     {
-        
+
         /*
          * 
          * Tentative process using the site
@@ -28,26 +28,27 @@ namespace PreSemester_Project.Controllers
          * 
          */
 
-
+        private readonly IVolunteerRepository _volunteerRepository;
         
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IVolunteerRepository volunteerRepository)
         {
             _logger = logger;
+            _volunteerRepository = volunteerRepository;
         }
         
         public IActionResult Index()
         {
-            return View("Index");
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Login(IFormCollection Form)
+        public RedirectToActionResult Login(IFormCollection Form)
         {
             // LOGIN FORM VALIDATION IS WORKING...
             // WILL UNCOMMENT TOWARDS END OF PROJECT
-            return View("Options");
+            return RedirectToAction("ManageVolunteers");
 
             ///// taking in login form from index.cshtml and gathering variables
             //string username = (Form["UserName"].ToString());
@@ -67,48 +68,67 @@ namespace PreSemester_Project.Controllers
             //    //message returned if invalid credentials are entered
             //    ViewBag.error = "Invalid Credentials: Please re-enter.";
             //    return View("Index");
-            //}
-
-
-            
+            //} 
         }
 
-        public IActionResult Landing()
+        public ActionResult ManageVolunteers()
         {
-            return View("Add_Volunteer");
+            IEnumerable<Volunteer> volList = _volunteerRepository.GetAllVolunteers();
+
+            ViewData.Model = volList;
+            return View();
         }
 
-        public IActionResult Add_Volunteer()
+        
+        public ActionResult Create()
         {
-            return View("Add_Volunteer");
+            return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public RedirectToActionResult Create(Volunteer newVol)
         {
-            return View("Privacy");
+            _volunteerRepository.Add(newVol);
+
+
+            return RedirectToAction("ManageVolunteers");
         }
 
-          public IActionResult Options()
+        public RedirectToActionResult Delete(int id)
         {
-            return View("Options");
+            _volunteerRepository.Delete(id);
+
+            return RedirectToAction("ManageVolunteers");
         }
 
-
-        [HttpPost] //Need to fix this method
-        public IActionResult AddVolunteer(Volunteer obj, string Add, string Cancel)
+        [HttpGet]
+        public ActionResult Edit(int id)
         {
-            //if (!string.IsNullOrEmpty(Add))
-            //{
-            //    ViewBag.Message = "Your volunteer was added successfully!";
-            //    return View("Index", obj);   //Need to change the view
-            //}
-            //if (!string.IsNullOrEmpty(Cancel))
-            //{
-            //    ViewBag.Message = "You volunteer was not added.";
-            //    return View("Index", obj);   //Need to change the view
-            //}
-            return View("index", "error");
+            Volunteer toBeChanged = _volunteerRepository.GetVolunteer(id);
+            ViewData.Model = toBeChanged;
+
+            return View();
         }
+
+        [HttpPost]
+        public RedirectToActionResult Edit(Volunteer changedVol)
+        {
+            _volunteerRepository.Edit(changedVol);
+
+            return RedirectToAction("ManageVolunteers");
+        }
+
+        //Search is Currently a WIP
+        [HttpGet]
+        public ActionResult Search(string key)
+        {
+
+            IEnumerable<Volunteer> results = _volunteerRepository.Search(key);
+
+            ViewData.Model = results;
+            return View("SearchResults");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
