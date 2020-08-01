@@ -5,7 +5,6 @@ C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\PreSemester Pr
 C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\PreSemester Project.TagHelpers.input.cache
 C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\PreSemester Project.TagHelpers.output.cache
 C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\PreSemester Project.RazorCoreGenerate.cache
-C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\Add_Volunteer.cshtml.g.cs
 C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -147,4 +146,7 @@ C:\Users\Jacob\Github\PreSemester Project\bin\Debug\netcoreapp3.1\zh-Hans\Micros
 C:\Users\Jacob\Github\PreSemester Project\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\PreSemester Project.csproj.CoreCompileInputs.cache
 C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\PreSemester Project.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\Landing.cshtml.g.cs
+C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\ManageVolunteers.cshtml.g.cs
+C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\Create.cshtml.g.cs
+C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\Edit.cshtml.g.cs
+C:\Users\Jacob\Github\PreSemester Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\SearchResults.cshtml.g.cs

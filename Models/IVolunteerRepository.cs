@@ -7,10 +7,11 @@ namespace PreSemester_Project.Models
     public interface IVolunteerRepository
     {
         Volunteer Add(Volunteer volunteer);
-
-        Volunteer Update(Volunteer volunteerChanges);
-
-        Volunteer Delete(Volunteer volunteerDelete);
+        Volunteer Edit(Volunteer volunteerChanges);
+        Volunteer Delete(int id);
+        IEnumerable<Volunteer> GetAllVolunteers();
+        IEnumerable<Volunteer> Search(string key);
+        Volunteer GetVolunteer(int id);
     }
 
 }

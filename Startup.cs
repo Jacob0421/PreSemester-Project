@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PreSemester_Project.Models;
 
 namespace PreSemester_Project
 {
@@ -24,6 +25,7 @@ namespace PreSemester_Project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<IVolunteerRepository, VolunteerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
