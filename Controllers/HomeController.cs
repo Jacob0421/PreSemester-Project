@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using PreSemester_Project.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace PreSemester_Project.Controllers
 {
@@ -29,7 +30,7 @@ namespace PreSemester_Project.Controllers
          */
 
         private readonly IVolunteerRepository _volunteerRepository;
-        
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger, IVolunteerRepository volunteerRepository)
@@ -37,7 +38,7 @@ namespace PreSemester_Project.Controllers
             _logger = logger;
             _volunteerRepository = volunteerRepository;
         }
-        
+
         public IActionResult Index()
         {
             return View();
@@ -79,7 +80,7 @@ namespace PreSemester_Project.Controllers
             return View();
         }
 
-        
+
         public ActionResult Create()
         {
             return View();
@@ -118,16 +119,64 @@ namespace PreSemester_Project.Controllers
             return RedirectToAction("ManageVolunteers");
         }
 
-        //Search is Currently a WIP
         [HttpGet]
         public ActionResult Search(string key)
         {
 
             IEnumerable<Volunteer> results = _volunteerRepository.Search(key);
 
-            ViewData.Model = results;
-            return View("SearchResults");
+            if (results.Any())
+            {
+                ViewData.Model = results;
+
+                return View("SearchResults");
+            }
+            else
+            {
+                TempData["error"] = "Volunteer not Found: Please recheck your spelling.";
+                ViewData.Model = _volunteerRepository.GetAllVolunteers();
+                return View("ManageVolunteers");
+            }
+
         }
+
+        public ActionResult SearchResults()
+        {
+            ViewData.Model = TempData["Results"] as IEnumerable<Volunteer>;
+
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Filter(string approvalStatus)
+        {
+            List<Volunteer> results = new List<Volunteer>();
+            if (approvalStatus != "All" && approvalStatus != "Approved/Pending Approval")
+            {
+                results = _volunteerRepository.FilterApprovalStatus(approvalStatus);
+                ViewData.Model = results.AsEnumerable();
+                
+            }
+            else if (approvalStatus == "Approved/Pending Approval")
+            {
+                results = _volunteerRepository.FilterApprovalStatus("Approved");
+                results.AddRange(_volunteerRepository.FilterApprovalStatus("Pending Approval"));
+
+                ViewData.Model = results.AsEnumerable();
+                ViewData["error"] = "Here";
+            }
+            else
+            {
+                ViewData.Model = _volunteerRepository.GetAllVolunteers();
+            }
+
+            TempData["filteredBy"] = "Filtered by " + approvalStatus + ".";
+
+            return View("ManageVolunteers");
+        }
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -135,4 +184,4 @@ namespace PreSemester_Project.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-} 
+}

@@ -58,8 +58,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="ApprovalStatus" class="control-label"></label>
-                <input asp-for="ApprovalStatus" class="form-control" />
-                <span asp-validation-for="ApprovalStatus" class="text-danger"></span>
+                <select asp-for="ApprovalStatus" class="form-control">
+                    <option value="Approved/Pending Approval">Approved / Pending Approval</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Pending Approval">Pending Approval</option>
+                    <option value="Disapproved">Disapproved</option>
+                    <option value="Inactive">Inactive</option>
+                    <option value="All">All</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

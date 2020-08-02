@@ -15,7 +15,7 @@ namespace PreSemester_Project.Models
             _volunteerList = new List<Volunteer>()
             {
                 new Volunteer {id = 1, FirstName = "Bob", LastName = "Evans", Username = "BEvans", Password= "1991", StreetAddress = "1995 StreetName Ave", State = "FL", City = "Jacksonville", ZipCode = 32225, ApprovalStatus = "Approved"},
-                new Volunteer {id = 2, FirstName = "Jim", LastName = "Evans", Username = "JEvans", Password= "1992", StreetAddress = "1995 StreetName Ave", State = "FL", City = "Jacksonville", ZipCode = 32225, ApprovalStatus = "Approved"}
+                new Volunteer {id = 2, FirstName = "Jim", LastName = "Evans", Username = "JEvans", Password= "1992", StreetAddress = "1995 StreetName Ave", State = "FL", City = "Jacksonville", ZipCode = 32225, ApprovalStatus = "Pending Approval"}
             };
         }
 
@@ -66,14 +66,22 @@ namespace PreSemester_Project.Models
             return toBeRemoved;
         }
 
-        //Currently A WIP
         public IEnumerable<Volunteer> Search(string key)
         {
-            IEnumerable<Volunteer> searchResults = _volunteerList.Where(v => v.FirstName == key 
-                                                                        || v.LastName == key 
-                                                                        || v.Username == key);
+            IEnumerable<Volunteer> searchResults = _volunteerList.Where(v => v.FirstName.Contains(key)
+                                                                        || v.LastName.Contains(key) 
+                                                                        || v.Username.Contains(key)
+                                                                        || (v.FirstName + " " + v.LastName).Contains(key));
 
             return searchResults;
+        }
+
+        public List<Volunteer> FilterApprovalStatus(string approvalStatus)
+        {
+
+            List<Volunteer> results = _volunteerList.Where(v => v.ApprovalStatus == approvalStatus).ToList();
+
+            return results;
         }
     }
 }
