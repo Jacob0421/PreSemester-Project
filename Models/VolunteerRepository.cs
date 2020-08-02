@@ -19,7 +19,7 @@ namespace PreSemester_Project.Models
             };
         }
 
-        public Volunteer Add(Volunteer volunteer)
+    public Volunteer Add(Volunteer volunteer)
         {
             volunteer.id = _volunteerList.Max(v => v.id) + 1;
             _volunteerList.Add(volunteer);
@@ -69,11 +69,22 @@ namespace PreSemester_Project.Models
         //Currently A WIP
         public IEnumerable<Volunteer> Search(string key)
         {
-            IEnumerable<Volunteer> searchResults = _volunteerList.Where(v => v.FirstName == key 
-                                                                        || v.LastName == key 
-                                                                        || v.Username == key);
+            IEnumerable<Volunteer> searchResults = _volunteerList.Where(v => v.FirstName.Contains(key)
+                                                                        || v.LastName.Contains(key)
+                                                                        || v.Username.Contains(key)
+                                                                        || (v.FirstName + " " + v.LastName).Contains(key));
 
             return searchResults;
+        }
+
+        public Volunteer Update(Volunteer volunteerChanges)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Volunteer Delete(Volunteer volunteerDelete)
+        {
+            throw new NotImplementedException();
         }
     }
 }

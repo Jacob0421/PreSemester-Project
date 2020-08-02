@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<PreSemester_Project.Models.Volunteer>
 
 @{
-    ViewData["Title"] = "ManageVolunteers";
+    ViewData["Title"] = "Manage Volunteers";
 }
 
 <h1>Manage Volunteers</h1>
@@ -16,7 +16,7 @@
 <form method="get" asp-action="Search" >
     <table>
         <tr>
-            <td><input type="text" placeholder="Search" name="Key" value ="Bob" class="form-control"/> </td>
+            <td><input type="text" placeholder="Search Name" name="Key" class="form-control"/> </td>
             <td><input type="submit" value="Search" class="btn btn-primary"></td>
         </tr>
     </table>
@@ -25,20 +25,11 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.id)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Password)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StreetAddress)
@@ -63,19 +54,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.id)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Username)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Password)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.StreetAddress)

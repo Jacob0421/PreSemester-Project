@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Jacob\\Github\\PreSemester Project\\PreSemester Project.csproj",
+  "FilePath": "d:\\Senior Project\\PreSemester-Project\\PreSemester Project.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -20521,48 +20521,63 @@
   "RootNamespace": "PreSemester_Project",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Jacob\\Github\\PreSemester Project\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Jacob\\Github\\PreSemester Project\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Jacob\\Github\\PreSemester Project\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Jacob\\Github\\PreSemester Project\\Views\\Home\\Add_Volunteer.cshtml",
-      "TargetPath": "Views\\Home\\Add_Volunteer.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Jacob\\Github\\PreSemester Project\\Views\\Home\\Landing.cshtml",
-      "TargetPath": "Views\\Home\\Landing.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Jacob\\Github\\PreSemester Project\\Views\\Home\\Privacy.cshtml",
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Jacob\\Github\\PreSemester Project\\Views\\Home\\Index.cshtml",
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Home\\Options.cshtml",
+      "TargetPath": "Views\\Home\\Options.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Jacob\\Github\\PreSemester Project\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Jacob\\Github\\PreSemester Project\\Views\\_ViewStart.cshtml",
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Home\\SearchResults.cshtml",
+      "TargetPath": "Views\\Home\\SearchResults.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Home\\ManageVolunteers.cshtml",
+      "TargetPath": "Views\\Home\\ManageVolunteers.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Home\\Create.cshtml",
+      "TargetPath": "Views\\Home\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Home\\Edit.cshtml",
+      "TargetPath": "Views\\Home\\Edit.cshtml",
       "FileKind": "mvc"
     }
   ],

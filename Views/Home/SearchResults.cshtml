@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<PreSemester_Project.Models.Volunteer>
 
 @{
-    ViewData["Title"] = "SearchResults";
+    ViewData["Title"] = "Search Results";
 }
 
 <h1>SearchResults</h1>
@@ -13,19 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.id)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Password)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StreetAddress)
@@ -49,19 +40,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.id)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Password)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StreetAddress)

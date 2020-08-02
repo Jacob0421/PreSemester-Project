@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using PreSemester_Project.Models;
 
 namespace PreSemester_Project.Controllers
 {
@@ -21,27 +23,40 @@ namespace PreSemester_Project.Controllers
             return View();
         }
 
+        
+
         // GET: VolunteerController/Create
         public ActionResult Create()
         {
             return View();
+            
         }
-
+        
+       
         // POST: VolunteerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(IFormCollection collection, bool confirm)
         {
-            try
+            if (confirm == true)
             {
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    return View();
+                }
             }
-            catch
+            else
             {
                 return View();
             }
+              //Delete if/else statement if it doesn't work
         }
 
+       
         // GET: VolunteerController/Edit/5
         public ActionResult Edit(int id)
         {
