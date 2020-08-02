@@ -12,6 +12,7 @@ namespace PreSemester_Project.Models
         IEnumerable<Volunteer> GetAllVolunteers();
         IEnumerable<Volunteer> Search(string key);
         Volunteer GetVolunteer(int id);
+        List<Volunteer> FilterApprovalStatus(string approvalStatus);
     }
 
 }
