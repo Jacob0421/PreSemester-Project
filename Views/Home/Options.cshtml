@@ -1,5 +1,5 @@
 ﻿
-@model PreSemester_Project.Models.Volunteer
+
 
 @{
     ViewData["Title"] = "Options";
@@ -7,14 +7,12 @@
 
 <DOCTYPE! html>
 <html lang="en">
-    <head>
-        
-    </head>
+    
     <body>
-        <form asp-action="Options" method="post">
+        <form asp-controller="Home" method="post">
             <p>What would you like to do today?</p>
-            <button type="submit" name="Volunteers">Manage Volunteers</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="submit" name="Opportunities">Manage Opportunities</button>
+            <input type="submit" value="Manage Volunteers" formaction="Volunteers">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit" value="Manage Opportunities" formaction="Opportunities">
         </form>
 
         

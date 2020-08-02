@@ -49,7 +49,7 @@ namespace PreSemester_Project.Controllers
         {
             // LOGIN FORM VALIDATION IS WORKING...
             // WILL UNCOMMENT TOWARDS END OF PROJECT
-            return RedirectToAction("ManageVolunteers");
+            return RedirectToAction("Options");
 
             ///// taking in login form from index.cshtml and gathering variables
             //string username = (Form["UserName"].ToString());
@@ -72,6 +72,23 @@ namespace PreSemester_Project.Controllers
             //} 
         }
 
+        public ActionResult Options()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public RedirectToActionResult Volunteers()
+        {
+            return RedirectToAction("ManageVolunteers");
+        }
+
+        [HttpPost]
+        public IActionResult Opportunities()
+        {
+            return View("Index");
+
+        }
         public ActionResult ManageVolunteers()
         {
             IEnumerable<Volunteer> volList = _volunteerRepository.GetAllVolunteers();
@@ -87,12 +104,20 @@ namespace PreSemester_Project.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult Create(Volunteer newVol)
+        public RedirectToActionResult Create(Volunteer newVol, bool confirm)
         {
-            _volunteerRepository.Add(newVol);
+            if(confirm == true)
+            {
+                _volunteerRepository.Add(newVol);
 
 
-            return RedirectToAction("ManageVolunteers");
+                return RedirectToAction("ManageVolunteers");
+            }
+            else
+            {
+                return RedirectToAction();
+            }
+           //Delete if/else statement if it doesn't work
         }
 
         public RedirectToActionResult Delete(int id)
@@ -121,7 +146,7 @@ namespace PreSemester_Project.Controllers
 
         [HttpGet]
         public ActionResult Search(string key)
-        {
+        }
 
             IEnumerable<Volunteer> results = _volunteerRepository.Search(key);
 
