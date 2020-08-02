@@ -36,10 +36,9 @@ namespace PreSemester_Project.Controllers
         // POST: VolunteerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection, bool confirm)
+        public ActionResult Create(IFormCollection collection)
         {
-            if (confirm == true)
-            {
+            
                 try
                 {
                     return RedirectToAction(nameof(Index));
@@ -48,12 +47,8 @@ namespace PreSemester_Project.Controllers
                 {
                     return View();
                 }
-            }
-            else
-            {
-                return View();
-            }
-              //Delete if/else statement if it doesn't work
+            
+           
         }
 
        
