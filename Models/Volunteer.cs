@@ -83,7 +83,7 @@ namespace PreSemester_Project.Models
         [Display(Name = "Emergency Contact Address")]
         public string EmergencyContactAddress { get; set; }
 
-        [Display(Name = "Drivers License")]
+        [Display(Name = "Drivers License Number")]
         public string DriversLicense { get; set; }
 
         [Display(Name = "Social Security Number")]
