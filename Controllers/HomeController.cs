@@ -94,7 +94,7 @@ namespace PreSemester_Project.Controllers
             IEnumerable<Volunteer> volList = _volunteerRepository.GetAllVolunteers();
 
             ViewData.Model = volList;
-            return View();
+            return View("");
         }
 
 
@@ -104,20 +104,11 @@ namespace PreSemester_Project.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult Create(Volunteer newVol, bool confirm)
+        public RedirectToActionResult Create(Volunteer newVol)
         {
-            if(confirm == true)
-            {
                 _volunteerRepository.Add(newVol);
-
-
                 return RedirectToAction("ManageVolunteers");
-            }
-            else
-            {
-                return RedirectToAction();
-            }
-           //Delete if/else statement if it doesn't work
+
         }
 
         public RedirectToActionResult Delete(int id)
@@ -146,7 +137,7 @@ namespace PreSemester_Project.Controllers
 
         [HttpGet]
         public ActionResult Search(string key)
-        }
+        {
 
             IEnumerable<Volunteer> results = _volunteerRepository.Search(key);
 
@@ -164,6 +155,7 @@ namespace PreSemester_Project.Controllers
             }
 
         }
+
 
         public ActionResult SearchResults()
         {
