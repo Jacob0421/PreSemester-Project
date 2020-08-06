@@ -251,7 +251,6 @@ D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\E
 D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\ManageVolunteers.cshtml.g.cs
 D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\Options.cshtml.g.cs
-D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\SearchResults.cshtml.g.cs
 D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -265,3 +264,4 @@ D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\PreSemester Projec
 D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\staticwebassets\PreSemester Project.StaticWebAssets.Manifest.cache
 D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\staticwebassets\PreSemester Project.StaticWebAssets.xml
 D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\PreSemester Project.genruntimeconfig.cache
+D:\Senior Project\PreSemester-Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HomeLayout.cshtml.g.cs

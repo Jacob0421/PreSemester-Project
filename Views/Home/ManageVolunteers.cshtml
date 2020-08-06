@@ -13,7 +13,7 @@
 <p class="text-danger">@TempData["error"]</p>
 <p class="text-warning">@TempData["filteredBy"]</p>
 
-<form method="get" asp-action="Search">
+<form method="get" asp-action="Search" style="float:left">
     <table>
         <tr>
             <td><input type="text" placeholder="Volunteer Name" name="Key"  class="form-control" /> </td>
@@ -21,7 +21,7 @@
         </tr>
     </table>
 </form>
-<form method="get" asp-action="Filter">
+<form method="get" asp-action="Filter" style="float:right">
     <table>
         <tr>
             <td>

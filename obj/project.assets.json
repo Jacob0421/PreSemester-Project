@@ -6077,11 +6077,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Senior Project\\PreSemester-Project\\PreSemester Project.csproj",
+      "projectUniqueName": "D:\\Senior Project\\Pre-Semester-Project\\PreSemester Project.csproj",
       "projectName": "PreSemester Project",
-      "projectPath": "D:\\Senior Project\\PreSemester-Project\\PreSemester Project.csproj",
+      "projectPath": "D:\\Senior Project\\Pre-Semester-Project\\PreSemester Project.csproj",
       "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-      "outputPath": "D:\\Senior Project\\PreSemester-Project\\obj\\",
+      "outputPath": "D:\\Senior Project\\Pre-Semester-Project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
