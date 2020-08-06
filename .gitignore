@@ -1,0 +1,6 @@
+
+*.cache
+*.props
+*.cache
+obj/project.assets.json
+Views/Shared/_Layout.cshtml

@@ -71,79 +71,71 @@
             </div>
             <div class="form-group">
                 <label asp-for="HomePhone" class="control-label"></label>
-                <input asp-for="HomePhone" class="form-control"  value="@Model.HomePhone" />
+                <input asp-for="HomePhone" class="form-control" value="@Model.HomePhone" />
                 <span asp-validation-for="HomePhone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CellPhone" class="control-label"></label>
-                <input asp-for="CellPhone" class="form-control"  value="@Model.CellPhone" />
+                <input asp-for="CellPhone" class="form-control" value="@Model.CellPhone" />
                 <span asp-validation-for="CellPhone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="WorkPhone" class="control-label"></label>
-                <input asp-for="WorkPhone" class="form-control"  value="@Model.WorkPhone" />
+                <input asp-for="WorkPhone" class="form-control" value="@Model.WorkPhone" />
                 <span asp-validation-for="WorkPhone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control"  value="@Model.Email" />
+                <input asp-for="Email" class="form-control" value="@Model.Email" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EducationalBackground" class="control-label"></label>
-                <input asp-for="EducationalBackground" class="form-control"  value="@Model.EducationalBackground" />
+                <input asp-for="EducationalBackground" class="form-control" value="@Model.EducationalBackground" />
                 <span asp-validation-for="EducationalBackground" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CurrentLicenses" class="control-label"></label>
-                <input asp-for="CurrentLicenses" class="form-control"  value="@Model.CurrentLicenses" />
+                <input asp-for="CurrentLicenses" class="form-control" value="@Model.CurrentLicenses" />
                 <span asp-validation-for="CurrentLicenses" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EmergencyContactName" class="control-label"></label>
-                <input asp-for="EmergencyContactName" class="form-control"  value="@Model.EmergencyContactName" />
+                <input asp-for="EmergencyContactName" class="form-control" value="@Model.EmergencyContactName" />
                 <span asp-validation-for="EmergencyContactName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EmergencyContactHomePhone" class="control-label"></label>
-                <input asp-for="EmergencyContactHomePhone" class="form-control"  value="@Model.EmergencyContactHomePhone" />
+                <input asp-for="EmergencyContactHomePhone" class="form-control" value="@Model.EmergencyContactHomePhone" />
                 <span asp-validation-for="EmergencyContactHomePhone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EmergencyContactWorkPhone" class="control-label"></label>
-                <input asp-for="EmergencyContactWorkPhone" class="form-control"  value="@Model.EmergencyContactWorkPhone" />
+                <input asp-for="EmergencyContactWorkPhone" class="form-control" value="@Model.EmergencyContactWorkPhone" />
                 <span asp-validation-for="EmergencyContactWorkPhone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EmergencyContactEmail" class="control-label"></label>
-                <input asp-for="EmergencyContactEmail" class="form-control"  value="@Model.EmergencyContactEmail" />
+                <input asp-for="EmergencyContactEmail" class="form-control" value="@Model.EmergencyContactEmail" />
                 <span asp-validation-for="EmergencyContactEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EmergencyContactAddress" class="control-label"></label>
-                <input asp-for="EmergencyContactAddress" class="form-control"  value="@Model.EmergencyContactAddress" />
+                <input asp-for="EmergencyContactAddress" class="form-control" value="@Model.EmergencyContactAddress" />
                 <span asp-validation-for="EmergencyContactAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DriversLicense" class="control-label"></label>
-                <input asp-for="DriversLicense" class="form-control"  value="@Model.DriversLicense" />
+                <input asp-for="DriversLicense" class="form-control" value="@Model.DriversLicense" />
                 <span asp-validation-for="DriversLicense" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SocialSecurity" class="control-label"></label>
-                <input asp-for="SocialSecurity" class="form-control"  value="@Model.SocialSecurity" />
+                <input asp-for="SocialSecurity" class="form-control" value="@Model.SocialSecurity" />
                 <span asp-validation-for="SocialSecurity" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ApprovalStatus" class="control-label"></label>
-<<<<<<< HEAD
-                <input asp-for="ApprovalStatus" class="form-control" value="@Model.ApprovalStatus"/>
-                <span asp-validation-for="ApprovalStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-                <input type="reset" value="Cancel" class="btn btn-primary" asp-action="ManageVolunteers"/>
-=======
                 <select asp-for="ApprovalStatus" class="form-control" value="@Model.ApprovalStatus">
                     <option value="Approved">Approved</option>
                     <option value="Pending Approval">Pending Approval</option>
@@ -154,7 +146,13 @@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
                 <input type="submit" value="Cancel" class="btn btn-primary" formnovalidate="formnovalidate" formaction="CancelVolunteer" style="float:right" />
->>>>>>> parent of 81a6171... Revert "Merge branch 'master' of https://github.com/Jacob0421/PreSemester-Project"
+
+                <input asp-for="ApprovalStatus" class="form-control" value="@Model.ApprovalStatus" />
+                <span asp-validation-for="ApprovalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="reset" value="Cancel" class="btn btn-primary" asp-action="ManageVolunteers" />
             </div>
         </form>
     </div>
