@@ -7,31 +7,31 @@
 <h1>Manage Volunteers</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" >Create New Volunteer</a>
 </p>
 
 <p class="text-danger">@TempData["error"]</p>
 <p class="text-warning">@TempData["filteredBy"]</p>
 
-<form method="get" asp-action="Search" style="float:left">
+<form method="get" asp-action="Search">
     <table>
         <tr>
-            <td><input type="text" placeholder="Volunteer Name" name="Key" value="Evans" class="form-control" /> </td>
+            <td><input type="text" placeholder="Volunteer Name" name="Key"  class="form-control" /> </td>
             <td><input type="submit" value="Search" class="btn btn-primary"></td>
         </tr>
     </table>
 </form>
-<form method="get" asp-action="Filter" style="float: right">
+<form method="get" asp-action="Filter">
     <table>
         <tr>
             <td>
                 <select name="approvalStatus" id="approvalStatus" class="form-control">
+                    <option value="All">All</option>
                     <option value="Approved/Pending Approval">Approved / Pending Approval</option>
                     <option value="Approved">Approved</option>
                     <option value="Pending Approval">Pending Approval</option>
                     <option value="Disapproved">Disapproved</option>
                     <option value="Inactive">Inactive</option>
-                    <option value="All">All</option>
                 </select>
             </td>
             <td>

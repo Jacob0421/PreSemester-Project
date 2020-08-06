@@ -13,7 +13,6 @@ namespace PreSemester_Project.Models
     {
         [HiddenInput]
         public int id { get; set; }
-
         [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -41,6 +40,7 @@ namespace PreSemester_Project.Models
         public string State { get; set; }
         [Required]
         [Display(Name="Zip Code")]
+        [MaxLength(5, ErrorMessage = "Zipcode cannot exceed 5 digits")]
         public int ZipCode { get; set; }
 
         //[Display(Name = "Home Phone")]
@@ -48,11 +48,11 @@ namespace PreSemester_Project.Models
         //public string HomePhone { get; set; }
 
         //[Display(Name = "Cell Phone")]
-        //[StringLength(12, ErrorMessage = "Phone numbers cannot exceed 12 characters.")]
+        //[MaxLength(12, ErrorMessage = "Phone numbers cannot exceed 12 characters.")]
         //public string CellPhone { get; set; }
 
         //[Display(Name = "Work Phone")]
-        //[StringLength(12, ErrorMessage = "Phone numbers cannot exceed 12 characters.")]
+        //[MaxLength(12, ErrorMessage = "Phone numbers cannot exceed 12 characters.")]
         //public string WorkPhone { get; set; }
 
         //[RegularExpression(@"^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", ErrorMessage = "Invalid email format")]
@@ -68,11 +68,11 @@ namespace PreSemester_Project.Models
         //public string EmergencyContactName { get; set; }
 
         //[Display(Name = "Emergency Contact Home Phone")]
-        //[StringLength(12, ErrorMessage = "Phone numbers cannot exceed 12 characters.")]
+        //[MaxLength(12, ErrorMessage = "Phone numbers cannot exceed 12 characters.")]
         //public string EmergencyContactHomePhone { get; set; }
 
         //[Display(Name = "Emergency Contact Work Phone")]
-        //[StringLength(12, ErrorMessage = "Phone numbers cannot exceed 12 characters.")]
+        //[MaxLength(12, ErrorMessage = "Phone numbers cannot exceed 12 characters.")]
         //public string EmergencyContactWorkPhone { get; set; }
 
         //[Display(Name = "Emergency Contact Email")]
@@ -86,12 +86,23 @@ namespace PreSemester_Project.Models
         //public string DriversLicense { get; set; }
 
         //[Display(Name = "Social Security")]
-        //[StringLength(11, ErrorMessage = "Social security numbers cannot exceed 11 characters.")]
+        //[MaxLength(11, ErrorMessage = "Social security numbers cannot exceed 11 characters.")]
         //public string SocialSecurity { get; set; }
         [Required]
         [Display(Name = "Approval Status")]
         public string ApprovalStatus { get; set; }
         
+           /* public enum Status
+            {
+                Approved = 1,
+               [Display(Name = "Pending Approval")]
+                PendingApproval = 2,
+                Disproved = 3,
+                Inactive = 4,
+                All = 5
+            }
+        
+       */
        
     }
 }

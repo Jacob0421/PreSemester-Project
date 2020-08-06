@@ -6071,23 +6071,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bento\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Jacob\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bento\\Desktop\\School Work\\Senior Design\\PreSemester-Project\\PreSemester Project.csproj",
+      "projectUniqueName": "C:\\Users\\Jacob\\Github\\PreSemester-Project\\PreSemester Project.csproj",
       "projectName": "PreSemester Project",
-      "projectPath": "C:\\Users\\bento\\Desktop\\School Work\\Senior Design\\PreSemester-Project\\PreSemester Project.csproj",
-      "packagesPath": "C:\\Users\\bento\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bento\\Desktop\\School Work\\Senior Design\\PreSemester-Project\\obj\\",
+      "projectPath": "C:\\Users\\Jacob\\Github\\PreSemester-Project\\PreSemester Project.csproj",
+      "packagesPath": "C:\\Users\\Jacob\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jacob\\Github\\PreSemester-Project\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\bento\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jacob\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6134,7 +6130,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
