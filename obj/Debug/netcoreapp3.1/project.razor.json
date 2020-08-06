@@ -20561,6 +20561,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Shared\\_HomeLayout.cshtml",
+      "TargetPath": "Views\\Shared\\_HomeLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Senior Project\\PreSemester-Project\\Views\\Home\\Create.cshtml",
       "TargetPath": "Views\\Home\\Create.cshtml",
       "FileKind": "mvc"
