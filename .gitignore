@@ -3,12 +3,12 @@
 *.props
 *.cache
 obj/project.assets.json
-/.vs
-/.vscode
+/.vs/*
+/.vscode/*
 .bin/Debug/netcoreapp3.1
 .program.cs
 .appsettings.development.json
-/properties
-/wwwroot
-/obj
+/properties/*
+/wwwroot/*
+/obj/*
 .appsettings.json
