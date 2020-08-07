@@ -8,3 +8,7 @@ obj/project.assets.json
 .bin/Debug/netcoreapp3.1
 .program.cs
 .appsettings.development.json
+/properties
+/wwwroot
+/obj
+.appsettings.json
