@@ -3,4 +3,8 @@
 *.props
 *.cache
 obj/project.assets.json
-Views/Shared/_Layout.cshtml
+..vs
+..vscode
+.bin/Debug/netcoreapp3.1
+.program.cs
+.appsettings.development.json
