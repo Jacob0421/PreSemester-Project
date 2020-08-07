@@ -3,7 +3,7 @@
 *.props
 *.cache
 obj/project.assets.json
-/.vs/*
+.vs/*
 /.vscode/*
 .bin/Debug/netcoreapp3.1
 .program.cs
