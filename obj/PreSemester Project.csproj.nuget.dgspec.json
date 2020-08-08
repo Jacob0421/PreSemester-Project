@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Senior Project\\Pre-Semester-Project\\PreSemester Project.csproj": {}
+    "C:\\Users\\Jacob\\Github\\PreSemester-Project\\PreSemester Project.csproj": {}
   },
   "projects": {
-    "D:\\Senior Project\\Pre-Semester-Project\\PreSemester Project.csproj": {
+    "C:\\Users\\Jacob\\Github\\PreSemester-Project\\PreSemester Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Senior Project\\Pre-Semester-Project\\PreSemester Project.csproj",
+        "projectUniqueName": "C:\\Users\\Jacob\\Github\\PreSemester-Project\\PreSemester Project.csproj",
         "projectName": "PreSemester Project",
-        "projectPath": "D:\\Senior Project\\Pre-Semester-Project\\PreSemester Project.csproj",
-        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "D:\\Senior Project\\Pre-Semester-Project\\obj\\",
+        "projectPath": "C:\\Users\\Jacob\\Github\\PreSemester-Project\\PreSemester Project.csproj",
+        "packagesPath": "C:\\Users\\Jacob\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jacob\\Github\\PreSemester-Project\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jacob\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -1,53 +1,57 @@
 ﻿@model PreSemester_Project.Models.Volunteer
 
 @{
-    ViewData["Title"] = "Home Page";
-    Layout = "_HomeLayout";
+    ViewData["Title"] = "Login";
 }
 
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Volunteer Management System</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" type="text/css" href="" asp-append-version="true"/>   <!--Add css -->
-    </head>
+<head>
+    <title>Volunteer Management System</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="~/css/Login.css" asp-append-version="true" />   <!--Add css -->
+</head>
 
-    <body>
-        <div id="header">
-            <h1 class="display-4">Welcome to the Volunteer Management System</h1>
-        </div><br />
+<body>
+    <div class="header">
+        <img src="~/Images/BitworksLogo.png" id="header-img"/>
+        <h2>Volunteer Management System</h2>
+    </div>
 
-        @ViewBag.error
+    @ViewBag.error
+    <div id="login-box">
+        <strong id="VMS-Watermark">Welcome to the Volunteer Management System</strong>
+        <div id="title">
+            <h1>Login</h1>
+        </div>
+        <div>
+            <form method="post" action="@Url.Action("Login", "Home")" >
+                <table id="fields">
+                    <tr>
+                        <td>
+                            @Html.Label("Username:")
+                        </td>
+                        <td>
+                            @Html.TextBox("Username")
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.Label("Password:")
+                        </td>
+                        <td>
+                            @Html.Password("Password")
+                        </td>
+                    </tr>
+                </table>
 
-        <form method="post" action="@Url.Action("Login", "Home")">
-            <table>
-                <tr>
-                    <td>
-                        @Html.Label("Username:")
-                    </td>
-                    <td>
-                        @Html.TextBox("Username")
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.Label("Password")
-                    </td>
-                    <td>
-                        @Html.Password("Password")
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" value="Login" />
-                    </td>
-                </tr>
-            </table>
-        </form>
+                <input type="submit" value="Login" id="submit-btn" />
 
+            </form>
+        </div>
+    </div>
 
-    </body>
+</body>
 </html>
