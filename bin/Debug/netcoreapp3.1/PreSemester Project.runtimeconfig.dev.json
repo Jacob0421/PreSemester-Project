@@ -1,9 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\bento\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\bento\\.nuget\\packages",
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "C:\\Users\\hdtig\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\hdtig\\.nuget\\packages"
     ]
   }
 }

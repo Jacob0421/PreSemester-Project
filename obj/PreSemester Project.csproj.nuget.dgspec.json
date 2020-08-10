@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bento\\Desktop\\School Work\\Senior Design\\PreSemester-Project\\PreSemester Project.csproj": {}
+    "C:\\Users\\hdtig\\Desktop\\FALL 2020\\Senior Project 1\\Assignment 1\\PreSemester-Project\\PreSemester Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bento\\Desktop\\School Work\\Senior Design\\PreSemester-Project\\PreSemester Project.csproj": {
+    "C:\\Users\\hdtig\\Desktop\\FALL 2020\\Senior Project 1\\Assignment 1\\PreSemester-Project\\PreSemester Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bento\\Desktop\\School Work\\Senior Design\\PreSemester-Project\\PreSemester Project.csproj",
+        "projectUniqueName": "C:\\Users\\hdtig\\Desktop\\FALL 2020\\Senior Project 1\\Assignment 1\\PreSemester-Project\\PreSemester Project.csproj",
         "projectName": "PreSemester Project",
-        "projectPath": "C:\\Users\\bento\\Desktop\\School Work\\Senior Design\\PreSemester-Project\\PreSemester Project.csproj",
-        "packagesPath": "C:\\Users\\bento\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bento\\Desktop\\School Work\\Senior Design\\PreSemester-Project\\obj\\",
+        "projectPath": "C:\\Users\\hdtig\\Desktop\\FALL 2020\\Senior Project 1\\Assignment 1\\PreSemester-Project\\PreSemester Project.csproj",
+        "packagesPath": "C:\\Users\\hdtig\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hdtig\\Desktop\\FALL 2020\\Senior Project 1\\Assignment 1\\PreSemester-Project\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bento\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hdtig\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,7 +40,7 @@
           "dependencies": {
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[3.1.4, )"
             }
           },
           "imports": [
@@ -64,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
