@@ -1,0 +1,21 @@
+﻿#content {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    text-align: center;
+}
+
+#content-box {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .70);
+    background-size: 35% 100%;
+    width: 60vh;
+    height: 40vh;
+    box-shadow: 2px 2px 5px;
+    border-radius: 15px;
+}

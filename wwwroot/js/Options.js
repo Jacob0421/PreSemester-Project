@@ -1,0 +1,3 @@
+﻿function Cycleimages() {
+    var imageDirectory= '../'
+}

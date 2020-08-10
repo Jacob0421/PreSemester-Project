@@ -89,11 +89,11 @@ namespace PreSemester_Project.Models
 
         public IEnumerable<Volunteer> Search(string key)
         {
-            IEnumerable<Volunteer> searchResults = _volunteerList.Where(v => v.FirstName.Contains(key)
+            IEnumerable<Volunteer> searchResults = _volunteerList.Where(v => v.FirstName.ToLower().Contains(key.ToLower())
 
-                                                                        || v.LastName.Contains(key) 
-                                                                        || v.Username.Contains(key)
-                                                                        || (v.FirstName + " " + v.LastName).Contains(key));
+                                                                        || v.LastName.ToLower().Contains(key.ToLower()) 
+                                                                        || v.Username.ToLower().Contains(key.ToLower())
+                                                                        || (v.FirstName + " " + v.LastName).ToLower().Contains(key.ToLower()));
 
             return searchResults;
         }
