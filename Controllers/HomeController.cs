@@ -51,7 +51,7 @@ namespace PreSemester_Project.Controllers
             // WILL UNCOMMENT TOWARDS END OF PROJECT
             return RedirectToAction("Options");
 
-            ///// taking in login form from index.cshtml and gathering variables
+            /// taking in login form from index.cshtml and gathering variables
             //string username = (Form["UserName"].ToString());
             //string password = (Form["Password"].ToString());
 
@@ -61,15 +61,15 @@ namespace PreSemester_Project.Controllers
             //    //initializing session variables
             //    HttpContext.Session.SetString("Username", username);
             //    HttpContext.Session.SetString("Password", password);
-            //    return View("Landing");
-            //} 
+            //    return View("Options");
+            //}
             //else
             //{
 
             //    //message returned if invalid credentials are entered
-            //    ViewBag.error = "Invalid Credentials: Please re-enter.";
+            //    ViewBag.error = "Username: Admin<br />Password: Admin";
             //    return View("Index");
-            //} 
+            //}
         }
 
         public ActionResult Options()
@@ -120,13 +120,6 @@ namespace PreSemester_Project.Controllers
             
         }
 
-        public RedirectToActionResult Delete(int id)
-        {
-            _volunteerRepository.Delete(id);
-
-            return RedirectToAction("ManageVolunteers");
-        }
-
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -140,6 +133,20 @@ namespace PreSemester_Project.Controllers
         public RedirectToActionResult Edit(Volunteer changedVol)
         {
             _volunteerRepository.Edit(changedVol);
+
+            return RedirectToAction("ManageVolunteers");
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            ViewData.Model = _volunteerRepository.GetVolunteer(id);
+            return View();
+        }
+
+        public RedirectToActionResult Delete(int id)
+        {
+            _volunteerRepository.Delete(id);
 
             return RedirectToAction("ManageVolunteers");
         }

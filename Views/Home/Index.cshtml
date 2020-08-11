@@ -16,18 +16,20 @@
 
 <body>
     <div class="header">
-        <img src="~/Images/BitworksLogo.png" id="header-img"/>
+        <img src="~/Images/BitworksLogo.png" id="header-img" />
         <h2>Volunteer Management System</h2>
     </div>
 
-    @ViewBag.error
     <div id="login-box">
         <strong id="VMS-Watermark">Welcome to the Volunteer Management System</strong>
         <div id="title">
             <h1>Login</h1>
         </div>
         <div>
-            <form method="post" action="@Url.Action("Login", "Home")" >
+            <p class="text-danger"style="padding-bottom: 30px;">
+                @Html.Raw(@ViewBag.error)
+            </p>
+            <form method="post" action="@Url.Action("Login", "Home")">
                 <table id="fields">
                     <tr>
                         <td>
@@ -37,6 +39,7 @@
                             @Html.TextBox("Username")
                         </td>
                     </tr>
+                    <br />
                     <tr>
                         <td>
                             @Html.Label("Password:")
