@@ -14,6 +14,6 @@ namespace PreSemester_Project.Models
 
         Opportunity getOpportunity(int oppID);
 
-
+        IEnumerable<Opportunity> GetAllOpportunities();
     }
 }
