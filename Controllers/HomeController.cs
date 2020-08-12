@@ -31,6 +31,8 @@ namespace PreSemester_Project.Controllers
 
         private readonly IVolunteerRepository _volunteerRepository;
 
+        private readonly IOpportunitiesRepository _opportunityRepository;
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger, IVolunteerRepository volunteerRepository)
@@ -120,11 +122,24 @@ namespace PreSemester_Project.Controllers
             
         }
 
+        [HttpPost]
+        public RedirectToActionResult Create(Opportunity newOpp)
+        {
+            _opportunityRepository.addOpp(newOpp);
+            return RedirectToAction("ManageOpportunities");
+        }
+
         public RedirectToActionResult Delete(int id)
         {
             _volunteerRepository.Delete(id);
 
             return RedirectToAction("ManageVolunteers");
+        }
+
+        public RedirectToActionResult DeleteOpportunity(int oppID)
+        {
+            _opportunityRepository.deleteOpp(oppID);
+            return RedirectToAction("ManageOpportunities");
         }
 
         [HttpGet]
@@ -136,12 +151,28 @@ namespace PreSemester_Project.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult EditOpportunity(int oppID)
+        {
+            Opportunity toBeChanged = _opportunityRepository.GetOpportunity(oppID);
+            ViewData.Model = toBeChanged;
+
+            return View();
+        }
+
         [HttpPost]
         public RedirectToActionResult Edit(Volunteer changedVol)
         {
             _volunteerRepository.Edit(changedVol);
 
             return RedirectToAction("ManageVolunteers");
+        }
+
+        [HttpPost]
+        public RedirectToActionResult EditOpportunity(Opportunity changedOpp)
+        {
+            _opportunityRepository.editOpp(changedOpp);
+            return RedirectToAction("ManageOpportunities");
         }
 
         [HttpGet]
@@ -165,10 +196,37 @@ namespace PreSemester_Project.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult SearchOpportunity(string key)
+        {
+
+            IEnumerable<Opportunity> results = _opportunityRepository.oppSearch(key);
+
+            if (results.Any())
+            {
+                ViewData.Model = results;
+
+                return View("SearchOppResults");
+            }
+            else
+            {
+                TempData["error"] = "Opportunity not Found: Please recheck your spelling.";
+                ViewData.Model = _opportunityRepository.GetAllOpportunities();
+                return View("ManageOpportunities");
+            }
+
+        }
+
         public ActionResult SearchResults()
         {
             ViewData.Model = TempData["Results"] as IEnumerable<Volunteer>;
 
+            return View();
+        }
+
+        public ActionResult SearchOppResults()
+        {
+            ViewData.Model = TempData["Results"] as IEnumerable<Opportunity>;
             return View();
         }
 
@@ -200,7 +258,7 @@ namespace PreSemester_Project.Controllers
             return View("ManageVolunteers");
         }
 
-
+        //need to add a filter for Opportunities
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
