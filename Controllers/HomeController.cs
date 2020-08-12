@@ -31,6 +31,8 @@ namespace PreSemester_Project.Controllers
 
         private readonly IVolunteerRepository _volunteerRepository;
 
+        private readonly IOpportunitiesRepository _opportunityRepository;
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger, IVolunteerRepository volunteerRepository)
@@ -84,10 +86,9 @@ namespace PreSemester_Project.Controllers
         }
 
         [HttpPost]
-        public IActionResult Opportunities()
+        public RedirectToActionResult Opportunities()
         {
-            return View("Index");
-
+            return RedirectToAction("ManageOpportunities");
         }
 
         [HttpPost]
@@ -120,11 +121,19 @@ namespace PreSemester_Project.Controllers
             
         }
 
+<<<<<<< Updated upstream
         public RedirectToActionResult Delete(int id)
         {
             _volunteerRepository.Delete(id);
 
             return RedirectToAction("ManageVolunteers");
+=======
+        [HttpPost]
+        public RedirectToActionResult Create(Opportunity newOpp)
+        {
+            _opportunityRepository.addOpp(newOpp);
+            return RedirectToAction("ManageOpportunities");
+>>>>>>> Stashed changes
         }
 
         [HttpGet]
@@ -132,6 +141,15 @@ namespace PreSemester_Project.Controllers
         {
             Volunteer toBeChanged = _volunteerRepository.GetVolunteer(id);
             ViewData.Model = toBeChanged;
+
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult EditOpportunity(int oppID)
+        {
+            Opportunity toBeEdited = _opportunityRepository.getOpportunity(oppID);
+            ViewData.Model = toBeEdited;
 
             return View();
         }
@@ -144,7 +162,37 @@ namespace PreSemester_Project.Controllers
             return RedirectToAction("ManageVolunteers");
         }
 
+        [HttpPost]
+        public RedirectToActionResult EditOpportunity(Opportunity changedOpp)
+        {
+            _opportunityRepository.editOpp(changedOpp);
+            return RedirectToAction("ManageOpportunities");
+        }
+
         [HttpGet]
+<<<<<<< Updated upstream
+=======
+        public ActionResult Details(int id)
+        {
+            ViewData.Model = _volunteerRepository.GetVolunteer(id);
+            return View();
+        }
+
+        public RedirectToActionResult Delete(int id)
+        {
+            _volunteerRepository.Delete(id);
+
+            return RedirectToAction("ManageVolunteers");
+        }
+
+        public RedirectToActionResult DeleteOpportunity(int oppID)
+        {
+            _opportunityRepository.deleteOpp(oppID);
+            return RedirectToAction("ManageOpportunities");
+        }
+
+        [HttpGet]
+>>>>>>> Stashed changes
         public ActionResult Search(string key)
         { 
 
@@ -165,6 +213,17 @@ namespace PreSemester_Project.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult SearchOpportunity(string key)
+        {
+            IEnumerable<Opportunity> results = _opportunityRepository.oppSearch(key);
+
+            if (results.Any())
+            {
+                ViewData.Model = results;
+                return View("Search")
+            }
+        }
         public ActionResult SearchResults()
         {
             ViewData.Model = TempData["Results"] as IEnumerable<Volunteer>;
