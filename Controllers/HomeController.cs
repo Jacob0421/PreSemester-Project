@@ -121,19 +121,11 @@ namespace PreSemester_Project.Controllers
             
         }
 
-<<<<<<< Updated upstream
         public RedirectToActionResult Delete(int id)
         {
             _volunteerRepository.Delete(id);
 
             return RedirectToAction("ManageVolunteers");
-=======
-        [HttpPost]
-        public RedirectToActionResult Create(Opportunity newOpp)
-        {
-            _opportunityRepository.addOpp(newOpp);
-            return RedirectToAction("ManageOpportunities");
->>>>>>> Stashed changes
         }
 
         [HttpGet]
@@ -170,29 +162,6 @@ namespace PreSemester_Project.Controllers
         }
 
         [HttpGet]
-<<<<<<< Updated upstream
-=======
-        public ActionResult Details(int id)
-        {
-            ViewData.Model = _volunteerRepository.GetVolunteer(id);
-            return View();
-        }
-
-        public RedirectToActionResult Delete(int id)
-        {
-            _volunteerRepository.Delete(id);
-
-            return RedirectToAction("ManageVolunteers");
-        }
-
-        public RedirectToActionResult DeleteOpportunity(int oppID)
-        {
-            _opportunityRepository.deleteOpp(oppID);
-            return RedirectToAction("ManageOpportunities");
-        }
-
-        [HttpGet]
->>>>>>> Stashed changes
         public ActionResult Search(string key)
         { 
 
@@ -221,7 +190,13 @@ namespace PreSemester_Project.Controllers
             if (results.Any())
             {
                 ViewData.Model = results;
-                return View("Search")
+                return View("Search");
+            }
+            else
+            {
+                TempData["error"] = "Opportunity not Found: Please recheck your spelling.";
+                ViewData.Model = _opportunityRepository.GetAllOpportunities();
+                return View("ManageOpportunities");
             }
         }
         public ActionResult SearchResults()
