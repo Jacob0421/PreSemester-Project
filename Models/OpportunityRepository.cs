@@ -52,6 +52,14 @@ namespace PreSemester_Project.Models
             IEnumerable<Opportunity> filterResults = oppList.Where(s => s.oppCenter.Contains(key));
             return filterResults;
         }
+        public IEnumerable<Opportunity> GetAllOpportunities()
+        {
+            return oppList;
+        }
+        public Opportunity getOpportunity(int oppID)
+        {
+            return oppList.FirstOrDefault(s => s.oppID == oppID);
+        }
 
     }
 }
