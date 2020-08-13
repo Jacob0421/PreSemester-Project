@@ -1,0 +1,30 @@
+﻿.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 7vh;
+    width: 100vw;
+    font-size: large;
+    background-color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    color: rgb(0,73,120);
+}
+
+#header-img {
+    max-height: 15vh;
+    position: absolute;
+    top: -40px;
+    left: 40px;
+}
+
+.table-with-content {
+    position: absolute;
+    top: 10%;
+    left: 7.5%;
+}
+
+.content{
+    position: absolute;
+    top: 10%;
+}
