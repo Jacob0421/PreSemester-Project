@@ -35,8 +35,9 @@ namespace PreSemester_Project.Controllers
 
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, IVolunteerRepository volunteerRepository)
+        public HomeController(ILogger<HomeController> logger, IVolunteerRepository volunteerRepository, IOpportunitiesRepository opportunitiesRepository)
         {
+            _opportunityRepository = opportunitiesRepository;
             _logger = logger;
             _volunteerRepository = volunteerRepository;
         }
@@ -86,10 +87,16 @@ namespace PreSemester_Project.Controllers
         }
 
         [HttpPost]
-        public IActionResult Opportunities()
+        public RedirectToActionResult Opportunities()
         {
-            return View("Index");
+            return RedirectToAction("ManageOpportunities");
 
+        }
+
+        public ActionResult ManageOpportunities()
+        {
+            ViewData.Model = _opportunityRepository.GetAllOpportunities();
+            return View("ManageOpportunities");
         }
 
         [HttpPost]
@@ -172,6 +179,12 @@ namespace PreSemester_Project.Controllers
         public ActionResult Details(int id)
         {
             ViewData.Model = _volunteerRepository.GetVolunteer(id);
+            return View();
+        }
+        [HttpGet]
+        public ActionResult oppDetails(int id)
+        {
+            ViewData.Model = _opportunityRepository.GetOpportunity(id);
             return View();
         }
 

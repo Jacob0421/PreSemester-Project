@@ -1,0 +1,43 @@
+﻿@model PreSemester_Project.Models.Opportunity
+
+@{
+    ViewData["Title"] = "CreateOpportunity";
+}
+
+<h1>CreateOpportunity</h1>
+
+<h4>Opportunity</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateOpportunity">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="oppID" class="control-label"></label>
+                <input asp-for="oppID" class="form-control" />
+                <span asp-validation-for="oppID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="oppName" class="control-label"></label>
+                <input asp-for="oppName" class="form-control" />
+                <span asp-validation-for="oppName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="oppCenter" class="control-label"></label>
+                <input asp-for="oppCenter" class="form-control" />
+                <span asp-validation-for="oppCenter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ManageOpportunities">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

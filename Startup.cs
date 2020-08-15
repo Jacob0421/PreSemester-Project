@@ -26,6 +26,7 @@ namespace PreSemester_Project
         {
             services.AddControllersWithViews();
             services.AddSingleton<IVolunteerRepository, VolunteerRepository>();
+            services.AddSingleton<IOpportunitiesRepository, OpportunityRespository>();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(15);//You can set Time   
             });

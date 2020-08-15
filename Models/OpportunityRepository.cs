@@ -14,7 +14,8 @@ namespace PreSemester_Project.Models
         {
             oppList = new List<Opportunity>()
             {
-                new Opportunity{oppID = 0, oppName = "test", oppCenter = "Test Center"}
+                new Opportunity{oppID = 0, oppName = "test", oppCenter = "Test Center"},
+                new Opportunity{oppID = 1, oppName = "SACRIFICE", oppCenter = "Hell" }
             };
         }
         public Opportunity addOpp(Opportunity opportunity)
