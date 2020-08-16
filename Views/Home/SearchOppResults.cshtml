@@ -1,7 +1,44 @@
-﻿
+﻿@model IEnumerable<PreSemester_Project.Models.Opportunity>
 @{
     ViewData["Title"] = "SearchOppResults";
 }
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/Pages.css" asp-append-version="true" />
+
+</head>
+
+
+<div class="header">
+    <img src="~/Images/BitworksLogo.png" id="header-img" />
+    <h2>Volunteer Management System</h2>
+</div>
 
 <h1>SearchOppResults</h1>
+<div style=" padding-top: 10%;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.oppName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oppName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.oppID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.oppID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.oppID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
