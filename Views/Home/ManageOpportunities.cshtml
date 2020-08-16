@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 ﻿
+=======
+﻿@model IEnumerable<PreSemester_Project.Models.Opportunity>
+
+>>>>>>> master
 @{
     ViewData["Title"] = "ManageOpportunities";
 }
 
 <h1>ManageOpportunities</h1>
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <form method="get" asp-action="SearchOpportunity" style="float:left">
@@ -16,6 +22,8 @@
     </table>
 </form>
 
+=======
+>>>>>>> master
 <p>
     <a asp-action="CreateOpportunity">Create New</a>
 </p>
@@ -47,12 +55,21 @@
                 @Html.DisplayFor(modelItem => item.oppCenter)
             </td>
             <td>
+<<<<<<< HEAD
                 @Html.ActionLink("Edit", "EditOpportunity", new {id=item.oppID}) |
                 @Html.ActionLink("Details", "oppDetails", new {id=item.oppID}) |
                 @Html.ActionLink("Delete", "DeleteOpportunity", new {id=item.oppID})
+=======
+                @Html.ActionLink("Edit", "EditOpportunity", new {oppID=item.oppID}) |
+                @Html.ActionLink("Details", "oppDetails", new {oppID=item.oppID}) |
+                @Html.ActionLink("Delete", "DeleteOpportunity", new {oppID=item.oppID})
+>>>>>>> master
             </td>
         </tr>
 }
     </tbody>
 </table>
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> master
