@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PreSemester_Project.Models.Opportunity>
+
+@{
+    ViewData["Title"] = "ManageOpportunities";
+}
+
+<h1>ManageOpportunities</h1>
+
+<p>
+    <a asp-action="CreateOpportunity">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.oppID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.oppName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.oppCenter)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.oppID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oppName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oppCenter)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditOpportunity", new {id=item.oppID}) |
+                @Html.ActionLink("Details", "oppDetails", new {id=item.oppID}) |
+                @Html.ActionLink("Delete", "DeleteOpportunity", new {id=item.oppID})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
