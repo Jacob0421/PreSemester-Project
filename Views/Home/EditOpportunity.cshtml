@@ -24,7 +24,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="oppCenter" class="control-label"></label>
-                <input asp-for="oppCenter" class="form-control" />
+                <select asp-for="oppCenter" class="form-control">
+                    <option value="Center 1">Center 1</option>
+                    <option value="Center 2">Center 2</option>
+                    <option value="Center 3">Center 3</option>
+                    <option value="Center 4">Center 4</option>
+                </select>
                 <span asp-validation-for="oppCenter" class="text-danger"></span>
             </div>
             <div class="form-group">
