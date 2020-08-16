@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿@model IEnumerable<PreSemester_Project.Models.Opportunity>
+@model IEnumerable<PreSemester_Project.Models.Opportunity>
 @{
     ViewData["Title"] = "SearchOppResults";
 }
@@ -33,21 +32,14 @@
                         @Html.DisplayFor(modelItem => item.oppName)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.oppID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.oppID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.oppID })
+                        @Html.ActionLink("Edit", "Edit", new { oppID = item.oppID }) |
+                        @Html.ActionLink("Details", "Details", new { oppID = item.oppID }) |
+                        @Html.ActionLink("Delete", "Delete", new { oppID = item.oppID })
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
-=======
-﻿
-@{
-    ViewData["Title"] = "SearchOppResults";
-}
 
-<h1>SearchOppResults</h1>
->>>>>>> master
 
