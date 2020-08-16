@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.oppCenter)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditOpportunity", new {id=item.oppID}) |
-                @Html.ActionLink("Details", "oppDetails", new {id=item.oppID}) |
-                @Html.ActionLink("Delete", "DeleteOpportunity", new {id=item.oppID})
+                @Html.ActionLink("Edit", "EditOpportunity", new {oppID=item.oppID}) |
+                @Html.ActionLink("Details", "oppDetails", new {oppID=item.oppID}) |
+                @Html.ActionLink("Delete", "DeleteOpportunity", new {oppID=item.oppID})
             </td>
         </tr>
 }

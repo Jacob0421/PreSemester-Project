@@ -129,6 +129,11 @@ namespace PreSemester_Project.Controllers
             
         }
 
+        public IActionResult CreateOpportunity()
+        {
+            return View();
+        }
+
         [HttpPost]
         public RedirectToActionResult CreateOpportunity(Opportunity newOpp)
         {
@@ -136,6 +141,7 @@ namespace PreSemester_Project.Controllers
             return RedirectToAction("ManageOpportunities");
         }
 
+        [HttpGet]
         public RedirectToActionResult DeleteOpportunity(int oppID)
         {
             _opportunityRepository.deleteOpp(oppID);
@@ -182,9 +188,9 @@ namespace PreSemester_Project.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult oppDetails(int id)
+        public ActionResult oppDetails(int oppID)
         {
-            ViewData.Model = _opportunityRepository.GetOpportunity(id);
+            ViewData.Model = _opportunityRepository.GetOpportunity(oppID);
             return View();
         }
 
