@@ -4,55 +4,62 @@
 @{
     ViewData["Title"] = "ManageOpportunities";
 }
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/Pages.css" asp-append-version="true" />   <!--Add css -->
+</head>
+<div class="header">
+    <img src="~/Images/BitworksLogo.png" id="header-img" />
+    <h2>Manage Opportunities</h2>
+</div>
+<div class="table-with-content">
+    <form method="get" asp-action="SearchOpportunity" style="float:left">
+        <table>
+            <tr>
+                <td><input type="text" placeholder="Opportunity Name" name="Key" class="form-control" /> </td>
+                <td><input type="submit" value="Search" class="btn btn-primary"></td>
+            </tr>
+        </table>
+    </form>
 
-<h1>ManageOpportunities</h1>
 
-<form method="get" asp-action="SearchOpportunity" style="float:left">
-    <table>
-        <tr>
-            <td><input type="text" placeholder="Opportunity Name" name="Key" class="form-control" /> </td>
-            <td><input type="submit" value="Search" class="btn btn-primary"></td>
-        </tr>
+    <p>
+        <a asp-action="CreateOpportunity">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.oppID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.oppName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.oppCenter)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oppID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oppName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oppCenter)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditOpportunity", new { oppID = item.oppID }) |
+                        @Html.ActionLink("Details", "oppDetails", new { oppID = item.oppID }) |
+                        @Html.ActionLink("Delete", "DeleteOpportunity", new { oppID = item.oppID })
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
-</form>
-
-
-<p>
-    <a asp-action="CreateOpportunity">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.oppID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.oppName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.oppCenter)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.oppID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.oppName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.oppCenter)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditOpportunity", new {oppID=item.oppID}) |
-                @Html.ActionLink("Details", "oppDetails", new {oppID=item.oppID}) |
-                @Html.ActionLink("Delete", "DeleteOpportunity", new {oppID=item.oppID})
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+</div>
