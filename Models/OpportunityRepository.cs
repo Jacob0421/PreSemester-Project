@@ -48,6 +48,7 @@ namespace PreSemester_Project.Models
         }
         public Opportunity addOpp(Opportunity opportunity)
         {
+            opportunity.datePosted = DateTime.Now;
             opportunity.oppID = oppList.Max(s => s.oppID) + 1;
             oppList.Add(opportunity);
             return opportunity;

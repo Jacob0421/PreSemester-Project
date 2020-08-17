@@ -24,6 +24,7 @@ namespace PreSemester_Project.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime datePosted { get; set; }
 
+        [Required]
         [Display(Name = "Address")]
         public string address { get; set; }
 

@@ -17,7 +17,7 @@
 
 <div class="table-with-content">
     <p>
-        <a asp-action="CreateOpportunity">Create New</a>
+        <a asp-action="CreateOpportunity">Create New Opportunity</a>
     </p>
     <p>
         <a asp-action="FilterPosted">Posted within the last 60 days</a>
@@ -52,9 +52,6 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.oppID)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.oppName)
                 </th>
                 <th>
@@ -63,32 +60,41 @@
                 <th>
                     @Html.DisplayNameFor(model => model.datePosted)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TimeOfEvent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oppID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oppName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oppCenter)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.datePosted)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "EditOpportunity", new { oppID = item.oppID }) |
-                        @Html.ActionLink("Details", "oppDetails", new { oppID = item.oppID }) |
-                        @Html.ActionLink("Delete", "DeleteOpportunity", new { oppID = item.oppID }) |
-                        @Html.ActionLink("Volunteer Matches", "VolunteerMatches", new { id = item.oppID })
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.oppName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.oppCenter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.datePosted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeOfEvent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditOpportunity", new { oppID = item.oppID }) |
+                    @Html.ActionLink("Details", "oppDetails", new { oppID = item.oppID }) |
+                    @Html.ActionLink("Delete", "DeleteOpportunity", new { oppID = item.oppID }) |
+                    @Html.ActionLink("Volunteer Matches", "VolunteerMatches", new { id = item.oppID })
+                </td>
+            </tr>
             }
         </tbody>
     </table>

@@ -19,8 +19,7 @@
             <form asp-action="EditOpportunity">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <input asp-for="oppID" class="form-control" />
-                    <span asp-validation-for="oppID" class="text-danger"></span>
+                    <input type="hidden" asp-for="oppID" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="oppName" class="control-label"></label>
@@ -29,13 +28,21 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="oppCenter" class="control-label"></label>
-                    <select asp-for="oppCenter" class="form-control">
-                        <option value="Center 1">Center 1</option>
-                        <option value="Center 2">Center 2</option>
-                        <option value="Center 3">Center 3</option>
-                        <option value="Center 4">Center 4</option>
+                    <select asp-for="oppCenter" class="form-control" value="@Model.oppCenter">
+                        <option value="Jacksonville Location">Jacksonville Location</option>
+                        <option value="Miami Location">Miami Location</option>
+                        <option value="St. Petersburg Location">St. Petersburg Location</option>
                     </select>
-                    <span asp-validation-for="oppCenter" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TimeOfEvent" class="control-label"></label>
+                    <input asp-for="TimeOfEvent" class="form-control" value="@Model.TimeOfEvent" />
+                    <span asp-validation-for="TimeOfEvent" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="description" class="control-label"></label>
+                    <input asp-for="description" class="form-control" value="@Model.description" />
+                    <span asp-validation-for="description" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Save" class="btn btn-primary" />
