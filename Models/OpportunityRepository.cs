@@ -51,12 +51,12 @@ namespace PreSemester_Project.Models
             IEnumerable<Opportunity> searchResults = oppList.Where(s => s.oppName.Contains(key));
             return searchResults;
         }
-        public List<Opportunity> centerFilter(string center)
+        public List<Opportunity> CenterFilter(string center)
         {
             List<Opportunity> centerResults = oppList.OrderBy(s => s.oppCenter == center).ToList();
             return centerResults;
         }
-        public List<Opportunity> dateFilter(DateTime date)
+        public List<Opportunity> DateFilter(DateTime date)
         {
             List<Opportunity> dateResults = oppList.OrderByDescending(s => s.OppDate == date).ToList();
             return dateResults;
