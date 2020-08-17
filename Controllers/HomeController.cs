@@ -47,7 +47,7 @@ namespace PreSemester_Project.Controllers
             return View(); 
         }
 
-        [HttpPost]
+        [HttpPost] 
         public RedirectToActionResult Login(IFormCollection Form)
         {
             // LOGIN FORM VALIDATION IS WORKING...
