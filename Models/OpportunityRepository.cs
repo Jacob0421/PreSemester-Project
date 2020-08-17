@@ -73,18 +73,15 @@ namespace PreSemester_Project.Models
         }
         public IEnumerable<Opportunity> oppSearch(string key)
         {
-            IEnumerable<Opportunity> searchResults = oppList.Where(s => s.oppName.Contains(key));
+            IEnumerable<Opportunity> searchResults = oppList.Where(s => s.oppName.ToLower().Contains(key.ToLower()) || s.oppCenter.ToLower().Contains(key.ToLower()) || s.description.ToLower().Contains(key.ToLower()));
             return searchResults;
         }
-        public List<Opportunity> CenterFilter(string center)
+        public List<Opportunity> FilterCenter(string center)
         {
-            List<Opportunity> centerResults = oppList.OrderBy(s => s.oppCenter == center).ToList();
-            return centerResults;
-        }
-        public List<Opportunity> DateFilter(DateTime date)
-        {
-            List<Opportunity> dateResults = oppList.OrderByDescending(s => s.datePosted == date).ToList();
-            return dateResults;
+
+            List<Opportunity> results = oppList.Where(o => o.oppCenter == center).ToList();
+
+            return results;
         }
         public Opportunity GetOpportunity(int oppID)
         {

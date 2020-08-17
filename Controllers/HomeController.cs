@@ -236,7 +236,7 @@ namespace PreSemester_Project.Controllers
             }
             else
             {
-                TempData["error"] = "Opportunity not Found: Please recheck your spelling.";
+                TempData["error"] = "Opportunity not found.";
                 ViewData.Model = _opportunityRepository.GetAllOpportunities();
                 return View("ManageOpportunities");
             }
@@ -285,26 +285,72 @@ namespace PreSemester_Project.Controllers
         }
 
         [HttpGet]
-        public ActionResult FilterOpportunity(string filterChoice)
+        public ActionResult FilterCenter(string center)
         {
             List<Opportunity> results = new List<Opportunity>();
-            switch (filterChoice)
+            if (center == "Jacksonville Location")
             {
-                case "Most Recent":
-                    results = results.OrderByDescending(s => s.datePosted).ToList();
-                    ViewData.Model = results.AsEnumerable();
-                    break;
-                case "Center":
-                    results = results.OrderBy(s => s.oppCenter).ToList();
-                    ViewData.Model = results.AsEnumerable();
-                    break;
-                default:
-                    ViewData.Model = _opportunityRepository.GetAllOpportunities();
-                    break;
+                results = _opportunityRepository.FilterCenter(center);
+                ViewData.Model = results.AsEnumerable();
+                TempData["filteredBy"] = "Filtered by " + center + ".";
+            }
+            else if (center == "Miami Location")
+            {
+                results = _opportunityRepository.FilterCenter(center);
+                ViewData.Model = results.AsEnumerable();
+                TempData["filteredBy"] = "Filtered by " + center + ".";
+            }
+            else if (center == "St. Petersburg Location")
+            {
+                results = _opportunityRepository.FilterCenter(center);
+                ViewData.Model = results.AsEnumerable();
+                TempData["filteredBy"] = "Filtered by " + center + ".";
+            }
+            else if (center == "All")
+            {
+                ViewData.Model = _opportunityRepository.GetAllOpportunities();
+                TempData["filteredBy"] = "You are viewing all of the opportunities posted.";
+            }
+            else
+            {
+                ViewData.Model = _opportunityRepository.GetAllOpportunities();
+                TempData["filteredBy"] = "There are no opportunities that match your filtering criteria.";
             }
 
-            TempData["filteredBy"] = "Filtered by " + filterChoice + ".";
 
+
+            return View("ManageOpportunities");
+        }//working
+
+        public ActionResult FilterPosted()
+        {
+            List<Opportunity> results = new List<Opportunity>();
+            DateTime today = DateTime.Now.Date;
+            IEnumerable<Opportunity> oppList = _opportunityRepository.GetAllOpportunities();
+            foreach (Opportunity opp in oppList)
+            {
+                DateTime posted = opp.datePosted.Date;
+                TimeSpan difference = today.Subtract(posted);
+                int daysDiff = difference.Days;
+
+                if (daysDiff <= 60)
+                {
+                    results.Add(opp);
+                    ViewData.Model = results.AsEnumerable();
+
+                }
+                else
+                {
+
+                }
+            }
+            if (results.Count == 0)
+            {
+                TempData["MethodResult"] = "There were no opportunitites posted within the past 60 days.";
+                return View("ManageOpportunities");
+            }
+            TempData["MethodResult"] = "You are viewing of the opportunitites posted within the past 60 days.";
+            ViewData.Model = results.AsEnumerable();
             return View("ManageOpportunities");
         }
 
