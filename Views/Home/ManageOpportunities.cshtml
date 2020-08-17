@@ -85,7 +85,8 @@
                     <td>
                         @Html.ActionLink("Edit", "EditOpportunity", new { oppID = item.oppID }) |
                         @Html.ActionLink("Details", "oppDetails", new { oppID = item.oppID }) |
-                        @Html.ActionLink("Delete", "DeleteOpportunity", new { oppID = item.oppID })
+                        @Html.ActionLink("Delete", "DeleteOpportunity", new { oppID = item.oppID }) |
+                        @Html.ActionLink("Volunteer Matches", "VolunteerMatches", new { id = item.oppID })
                     </td>
                 </tr>
             }

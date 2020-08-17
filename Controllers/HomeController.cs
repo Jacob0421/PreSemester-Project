@@ -387,6 +387,39 @@ namespace PreSemester_Project.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult VolunteerMatches(int id)
+        {
+            Opportunity findopp = _opportunityRepository.GetOpportunity(id);
+            List<Volunteer> results = new List<Volunteer>();
+            IEnumerable<Volunteer> volList = _volunteerRepository.GetAllVolunteers();
+
+            foreach (Volunteer vol in volList)
+            {
+                if (vol.CenterPreferences == findopp.oppCenter)
+                {
+                    results.Add(vol);
+
+                }
+                else
+                {
+
+                }
+            }
+
+            if (results.Count == 0)
+            {
+                TempData["error"] = "Volunteer match not found.";
+                return RedirectToAction("ManageOpportunities");
+            }
+            else
+            {
+
+                var finalResults = new VolunteerMatchesView { opportunity = findopp, _volunteerList = results };
+                return View(finalResults);
+            }
+        }//working
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
