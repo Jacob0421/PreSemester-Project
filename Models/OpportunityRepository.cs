@@ -14,8 +14,10 @@ namespace PreSemester_Project.Models
         {
             oppList = new List<Opportunity>()
             {
-                new Opportunity{oppID = 0, oppName = "test", oppCenter = "Test Center"},
-                new Opportunity{oppID = 1, oppName = "SACRIFICE", oppCenter = "Hell" }
+                new Opportunity{oppID = 0, oppName = "Removing Anti-Homeless Architecture", oppCenter = "Alpha", OppDate = new DateTime(2020, 07, 04) },
+                new Opportunity{oppID = 1, oppName = "Tutoring Kids in Advanced Calculus", oppCenter = "Charlie", OppDate = new DateTime(2020, 07, 15) },
+                new Opportunity{oppID = 2, oppName = "Fighting Against Towing Companies", oppCenter = "Bravo", OppDate = new DateTime(2020, 08, 08) },
+                new Opportunity{oppID = 3, oppName = "Run Errands for the Elderly", oppCenter = "Delta", OppDate = new DateTime(2020, 08, 11) }
             };
         }
         public Opportunity addOpp(Opportunity opportunity)
@@ -48,10 +50,15 @@ namespace PreSemester_Project.Models
             IEnumerable<Opportunity> searchResults = oppList.Where(s => s.oppName.Contains(key));
             return searchResults;
         }
-        public IEnumerable<Opportunity> centerFilter(string key)
+        public List<Opportunity> CenterFilter(string center)
         {
-            IEnumerable<Opportunity> filterResults = oppList.Where(s => s.oppCenter.Contains(key));
-            return filterResults;
+            List<Opportunity> centerResults = oppList.OrderBy(s => s.oppCenter == center).ToList();
+            return centerResults;
+        }
+        public List<Opportunity> DateFilter(DateTime date)
+        {
+            List<Opportunity> dateResults = oppList.OrderByDescending(s => s.OppDate == date).ToList();
+            return dateResults;
         }
         public Opportunity GetOpportunity(int oppID)
         {

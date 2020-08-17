@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<PreSemester_Project.Models.Opportunity>
 
 @{
-    ViewData["Title"] = "ManageOpportunities";
+    ViewData["Title"] = "Manage Opportunities";
 }
 
 <h1>ManageOpportunities</h1>
@@ -9,6 +9,31 @@
 <p>
     <a asp-action="CreateOpportunity">Create New</a>
 </p>
+
+<form method="get" asp-action="SearchOpportunity" style="float:left">
+    <table>
+        <tr>
+            <td><input type="text" placeholder="Opportunity Name" name="Key" class="form-control" /> </td>
+            <td><input type="submit" value="Search" class="btn btn-primary"></td>
+        </tr>
+    </table>
+</form>
+
+<form method="get" asp-action="FilterOpportunity" style="float:right">
+    <table>
+        <tr>
+            <td>
+                <select name="filterChoice" id="filterChoice" class="form-control">
+                    <option value="Most Recent">Most Recent (60 days)</option>
+                    <option value="Center">By Center</option>
+                </select>
+            </td>
+            <td>
+                <input type="submit" value="Filter" class="btn btn-primary" />
+            </td>
+        </tr>
+    </table>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -21,11 +46,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.oppCenter)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.OppDate)
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.oppID)
@@ -37,11 +65,14 @@
                 @Html.DisplayFor(modelItem => item.oppCenter)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditOpportunity", new {id=item.oppID}) |
-                @Html.ActionLink("Details", "oppDetails", new {id=item.oppID}) |
-                @Html.ActionLink("Delete", "DeleteOpportunity", new {id=item.oppID})
+                @Html.DisplayFor(modelItem => item.OppDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditOpportunity", new { id = item.oppID }) |
+                @Html.ActionLink("Details", "oppDetails", new { id = item.oppID }) |
+                @Html.ActionLink("Delete", "DeleteOpportunity", new { id = item.oppID })
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>

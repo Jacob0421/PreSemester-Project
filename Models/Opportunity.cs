@@ -17,6 +17,9 @@ namespace PreSemester_Project.Models
         [Required]
         [Display (Name = "Opportunity Center")]
         public string oppCenter { get; set; }
+        [Required]
+        [Display(Name = "Date")]
+        public DateTime OppDate { get; set; }
 
 
     }
