@@ -1,0 +1,58 @@
+﻿@model PreSemester_Project.Models.OpportunityMatchesView
+
+@{
+    ViewData["Title"] = "OpportunityMatches";
+}
+
+<h1>Opportunity Matches</h1>
+<br />
+<br />
+
+
+<p>These are the opportunity matches @Model._volunteer.FirstName @Model._volunteer.LastName</p>
+<p>Center Preferences: @Model._volunteer.CenterPreferences</p>
+
+<br />
+<br />
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Center Name
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Date and Time of the Event
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model._opportunityList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.oppCenter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.oppName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeOfEvent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="ManageVolunteers">Back to Volunteers</a>
+</div>
