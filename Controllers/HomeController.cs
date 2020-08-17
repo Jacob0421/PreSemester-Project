@@ -284,8 +284,29 @@ namespace PreSemester_Project.Controllers
             return View("ManageVolunteers");
         }
 
-        //need to add a filter for Opportunities
+        [HttpGet]
+        public ActionResult FilterOpportunity(string filterChoice)
+        {
+            List<Opportunity> results = new List<Opportunity>();
+            switch (filterChoice)
+            {
+                case "Most Recent":
+                    results = results.OrderByDescending(s => s.OppDate).ToList();
+                    ViewData.Model = results.AsEnumerable();
+                    break;
+                case "Center":
+                    results = results.OrderBy(s => s.oppCenter).ToList();
+                    ViewData.Model = results.AsEnumerable();
+                    break;
+                default:
+                    ViewData.Model = _opportunityRepository.GetAllOpportunities();
+                    break;
+            }
 
+            TempData["filteredBy"] = "Filtered by " + filterChoice + ".";
+
+            return View("ManageOpportunities");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

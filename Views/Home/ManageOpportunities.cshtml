@@ -12,6 +12,9 @@
     <h2>Manage Opportunities</h2>
 </div>
 <div class="table-with-content">
+    <p>
+        <a asp-action="CreateOpportunity">Create New</a>
+    </p>
     <form method="get" asp-action="SearchOpportunity" style="float:left">
         <table>
             <tr>
@@ -20,11 +23,22 @@
             </tr>
         </table>
     </form>
+    <form method="get" asp-action="FilterOpportunity" style="float:right">
+        <table>
+            <tr>
+                <td>
+                    <select name="filterChoice" id="filterChoice" class="form-control">
+                        <option value="Most Recent">Most Recent (60 days)</option>
+                        <option value="Center">By Center</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="submit" value="Filter" class="btn btn-primary" />
+                </td>
+            </tr>
+        </table>
+    </form>
 
-
-    <p>
-        <a asp-action="CreateOpportunity">Create New</a>
-    </p>
     <table class="table">
         <thead>
             <tr>
@@ -36,6 +50,9 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.oppCenter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OppDate)
                 </th>
                 <th></th>
             </tr>
@@ -52,6 +69,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.oppCenter)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OppDate)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "EditOpportunity", new { oppID = item.oppID }) |
