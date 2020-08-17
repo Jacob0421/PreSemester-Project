@@ -123,10 +123,10 @@ namespace PreSemester_Project.Controllers
         [HttpPost]
         public RedirectToActionResult Create(Volunteer newVol)
         {
-         
-                _volunteerRepository.Add(newVol);
-                return RedirectToAction("ManageVolunteers");
-            
+
+            _volunteerRepository.Add(newVol);
+            return RedirectToAction("ManageVolunteers");
+
         }
 
         public IActionResult CreateOpportunity()
@@ -203,19 +203,27 @@ namespace PreSemester_Project.Controllers
 
         [HttpGet]
         public ActionResult Search(string key)
-        { 
+        {
 
-            IEnumerable<Volunteer> results = _volunteerRepository.Search(key);
-
-            if (results.Any())
+            if (!string.IsNullOrEmpty(key))
             {
-                ViewData.Model = results;
+                IEnumerable<Volunteer> results = _volunteerRepository.Search(key);
+                if (results.Any())
+                {
+                    ViewData.Model = results;
 
-                return View("SearchResults");
+                    return View("SearchResults");
+                }
+                else
+                {
+                    TempData["error"] = "Volunteer not Found: Please recheck your spelling.";
+                    ViewData.Model = _volunteerRepository.GetAllVolunteers();
+                    return View("ManageVolunteers");
+                }
             }
             else
             {
-                TempData["error"] = "Volunteer not Found: Please recheck your spelling.";
+                TempData["error"] = "Empty String: Please try again.";
                 ViewData.Model = _volunteerRepository.GetAllVolunteers();
                 return View("ManageVolunteers");
             }
@@ -243,13 +251,6 @@ namespace PreSemester_Project.Controllers
 
         }
 
-        public ActionResult SearchResults()
-        {
-            ViewData.Model = TempData["Results"] as IEnumerable<Volunteer>;
-
-            return View();
-        }
-
         public ActionResult SearchOppResults()
         {
             ViewData.Model = TempData["Results"] as IEnumerable<Opportunity>;
@@ -264,7 +265,7 @@ namespace PreSemester_Project.Controllers
             {
                 results = _volunteerRepository.FilterApprovalStatus(approvalStatus);
                 ViewData.Model = results.AsEnumerable();
-                
+
             }
             else if (approvalStatus == "Approved/Pending Approval")
             {
