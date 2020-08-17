@@ -44,7 +44,7 @@ namespace PreSemester_Project.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(); 
         }
 
         [HttpPost]
