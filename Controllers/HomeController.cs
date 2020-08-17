@@ -212,7 +212,7 @@ namespace PreSemester_Project.Controllers
                 {
                     ViewData.Model = results;
 
-                    return View("SearchResults");
+                    return View("SearchResults"); 
                 }
                 else
                 {
