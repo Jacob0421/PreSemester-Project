@@ -17,10 +17,10 @@
         <hr />
         <dl class="row">
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.oppID)
+                @Html.DisplayNameFor(model => model.datePosted)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.oppID)
+                @Html.DisplayFor(model => model.datePosted)
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.oppName)
@@ -35,15 +35,27 @@
                 @Html.DisplayFor(model => model.oppCenter)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.datePosted)
+                @Html.DisplayNameFor(model => model.TimeOfEvent)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.datePosted)
+                @Html.DisplayFor(model => model.TimeOfEvent)
             </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.description)
+            </dd>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.address)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
         </dl>
     </div>
     <div>
         @Html.ActionLink("Edit", "EditOpportunity", new { id = Model.oppID }) |
-        <a asp-action="ManageOpportunities">Back to List</a>
+        <a asp-action="ManageOpportunities">Back to Opportunities</a>
     </div>
 </div>

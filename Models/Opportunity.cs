@@ -13,10 +13,10 @@ namespace PreSemester_Project.Models
         public int oppID { get; set; }
         
         [Required]
-        [Display (Name = "Opportunity Name")]
+        [Display (Name = "Title")]
         public string oppName { get; set; }
         [Required]
-        [Display (Name = "Opportunity Center")]
+        [Display (Name = "Center Name")]
         public string oppCenter { get; set; }
        
         [Display(Name = "Date Posted")]
