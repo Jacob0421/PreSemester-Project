@@ -2,7 +2,7 @@
 
 
 @{
-    ViewData["Title"] = "ManageOpportunities";
+    ViewData["Title"] = "Manage Opportunities";
 }
 <head>
     <link rel="stylesheet" type="text/css" href="~/css/Pages.css" asp-append-version="true" />   <!--Add css -->
@@ -52,7 +52,7 @@
                     @Html.DisplayNameFor(model => model.oppCenter)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.OppDate)
+                    @Html.DisplayNameFor(model => model.datePosted)
                 </th>
                 <th></th>
             </tr>
@@ -71,7 +71,7 @@
                         @Html.DisplayFor(modelItem => item.oppCenter)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.OppDate)
+                        @Html.DisplayFor(modelItem => item.datePosted)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "EditOpportunity", new { oppID = item.oppID }) |

@@ -291,7 +291,7 @@ namespace PreSemester_Project.Controllers
             switch (filterChoice)
             {
                 case "Most Recent":
-                    results = results.OrderByDescending(s => s.OppDate).ToList();
+                    results = results.OrderByDescending(s => s.datePosted).ToList();
                     ViewData.Model = results.AsEnumerable();
                     break;
                 case "Center":

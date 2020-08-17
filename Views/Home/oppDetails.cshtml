@@ -1,7 +1,7 @@
 ﻿@model PreSemester_Project.Models.Opportunity
 
 @{
-    ViewData["Title"] = "oppDetails";
+    ViewData["Title"] = "Opportunity Details";
 }
 <head>
     <meta charset="utf-8" />
@@ -35,10 +35,10 @@
                 @Html.DisplayFor(model => model.oppCenter)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.OppDate)
+                @Html.DisplayNameFor(model => model.datePosted)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.OppDate)
+                @Html.DisplayFor(model => model.datePosted)
             </dd>
         </dl>
     </div>
