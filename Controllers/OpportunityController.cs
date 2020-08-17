@@ -15,7 +15,6 @@ namespace PreSemester_Project.Controllers
         {
             return View();
         }
-        
         public ActionResult Details(int oppID)
         {
             return View();
@@ -28,6 +27,7 @@ namespace PreSemester_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public ActionResult CreateOpportunity(IFormCollection collection)
         {
             try

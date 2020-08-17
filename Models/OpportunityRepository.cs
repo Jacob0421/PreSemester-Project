@@ -33,6 +33,7 @@ namespace PreSemester_Project.Models
             {
                 edited.oppName = opportunity.oppName;
                 edited.oppCenter = opportunity.oppCenter;
+                edited.OppDate = opportunity.OppDate;
             }
             return opportunity;
         }
