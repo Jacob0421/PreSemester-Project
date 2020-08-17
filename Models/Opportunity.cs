@@ -11,13 +11,30 @@ namespace PreSemester_Project.Models
     {
         [HiddenInput]
         public int oppID { get; set; }
+        
         [Required]
-        [Display (Name = "Opportunity Name")]
+        [Display (Name = "Title")]
         public string oppName { get; set; }
         [Required]
-        [Display (Name = "Opportunity Center")]
+        [Display (Name = "Center Name")]
         public string oppCenter { get; set; }
+       
+        [Display(Name = "Date Posted")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime datePosted { get; set; }
 
+        [Required]
+        [Display(Name = "Address")]
+        public string address { get; set; }
+
+        [Required]
+        [Display(Name = "Time of Event")]
+        public DateTime TimeOfEvent { get; set; }
+
+        [Required]
+        [Display(Name = "Description")]
+        public string description { get; set; }
 
     }
 }

@@ -10,10 +10,8 @@ namespace PreSemester_Project.Models
         Opportunity editOpp(Opportunity oppEdit);
         Opportunity deleteOpp(int oppID);
         IEnumerable<Opportunity> oppSearch(string key);
-        IEnumerable<Opportunity> centerFilter(string center);
-
+        List<Opportunity> FilterCenter(string center);
         Opportunity GetOpportunity(int oppID);
-
         IEnumerable<Opportunity> GetAllOpportunities();
 
     }

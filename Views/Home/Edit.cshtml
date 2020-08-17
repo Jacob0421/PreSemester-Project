@@ -46,8 +46,11 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="CenterPreferences" class="control-label"></label>
-                    <input asp-for="CenterPreferences" class="form-control" value="@Model.CenterPreferences" />
-                    <span asp-validation-for="CenterPreferences" class="text-danger"></span>
+                    <select asp-for="CenterPreferences" class="form-control" value="@Model.CenterPreferences" />
+                        <option value="Jacksonville Location">Jacksonville Location</option>
+                        <option value="Miami Location">Miami Location</option>
+                        <option value="St. Petersburg Location">St. Petersburg Location</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label asp-for="Skills" class="control-label"></label>
@@ -162,7 +165,7 @@
     </div>
 
     <div>
-        <a asp-action="ManageVolunteers">Back to List</a>
+        <a asp-action="ManageVolunteers">Back to Volunteers</a>
     </div>
 </div>
 @section Scripts {

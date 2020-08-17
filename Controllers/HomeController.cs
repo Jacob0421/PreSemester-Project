@@ -123,10 +123,10 @@ namespace PreSemester_Project.Controllers
         [HttpPost]
         public RedirectToActionResult Create(Volunteer newVol)
         {
-         
-                _volunteerRepository.Add(newVol);
-                return RedirectToAction("ManageVolunteers");
-            
+
+            _volunteerRepository.Add(newVol);
+            return RedirectToAction("ManageVolunteers");
+
         }
 
         public IActionResult CreateOpportunity()
@@ -203,19 +203,27 @@ namespace PreSemester_Project.Controllers
 
         [HttpGet]
         public ActionResult Search(string key)
-        { 
+        {
 
-            IEnumerable<Volunteer> results = _volunteerRepository.Search(key);
-
-            if (results.Any())
+            if (!string.IsNullOrEmpty(key))
             {
-                ViewData.Model = results;
+                IEnumerable<Volunteer> results = _volunteerRepository.Search(key);
+                if (results.Any())
+                {
+                    ViewData.Model = results;
 
-                return View("SearchResults");
+                    return View("SearchResults");
+                }
+                else
+                {
+                    TempData["error"] = "Volunteer not Found: Please recheck your spelling.";
+                    ViewData.Model = _volunteerRepository.GetAllVolunteers();
+                    return View("ManageVolunteers");
+                }
             }
             else
             {
-                TempData["error"] = "Volunteer not Found: Please recheck your spelling.";
+                TempData["error"] = "Empty String: Please try again.";
                 ViewData.Model = _volunteerRepository.GetAllVolunteers();
                 return View("ManageVolunteers");
             }
@@ -236,18 +244,11 @@ namespace PreSemester_Project.Controllers
             }
             else
             {
-                TempData["error"] = "Opportunity not Found: Please recheck your spelling.";
+                TempData["error"] = "Opportunity not found.";
                 ViewData.Model = _opportunityRepository.GetAllOpportunities();
                 return View("ManageOpportunities");
             }
 
-        }
-
-        public ActionResult SearchResults()
-        {
-            ViewData.Model = TempData["Results"] as IEnumerable<Volunteer>;
-
-            return View();
         }
 
         public ActionResult SearchOppResults()
@@ -264,7 +265,7 @@ namespace PreSemester_Project.Controllers
             {
                 results = _volunteerRepository.FilterApprovalStatus(approvalStatus);
                 ViewData.Model = results.AsEnumerable();
-                
+
             }
             else if (approvalStatus == "Approved/Pending Approval")
             {
@@ -284,8 +285,141 @@ namespace PreSemester_Project.Controllers
             return View("ManageVolunteers");
         }
 
-        //need to add a filter for Opportunities
+        [HttpGet]
+        public ActionResult FilterCenter(string center)
+        {
+            List<Opportunity> results = new List<Opportunity>();
+            if (center == "Jacksonville Location")
+            {
+                results = _opportunityRepository.FilterCenter(center);
+                ViewData.Model = results.AsEnumerable();
+                TempData["filteredBy"] = "Filtered by " + center + ".";
+            }
+            else if (center == "Miami Location")
+            {
+                results = _opportunityRepository.FilterCenter(center);
+                ViewData.Model = results.AsEnumerable();
+                TempData["filteredBy"] = "Filtered by " + center + ".";
+            }
+            else if (center == "St. Petersburg Location")
+            {
+                results = _opportunityRepository.FilterCenter(center);
+                ViewData.Model = results.AsEnumerable();
+                TempData["filteredBy"] = "Filtered by " + center + ".";
+            }
+            else if (center == "All")
+            {
+                ViewData.Model = _opportunityRepository.GetAllOpportunities();
+                TempData["filteredBy"] = "You are viewing all of the opportunities posted.";
+            }
+            else
+            {
+                ViewData.Model = _opportunityRepository.GetAllOpportunities();
+                TempData["filteredBy"] = "There are no opportunities that match your filtering criteria.";
+            }
 
+
+
+            return View("ManageOpportunities");
+        }//working
+
+        public ActionResult FilterPosted()
+        {
+            List<Opportunity> results = new List<Opportunity>();
+            DateTime today = DateTime.Now.Date;
+            IEnumerable<Opportunity> oppList = _opportunityRepository.GetAllOpportunities();
+            foreach (Opportunity opp in oppList)
+            {
+                DateTime posted = opp.datePosted.Date;
+                TimeSpan difference = today.Subtract(posted);
+                int daysDiff = difference.Days;
+
+                if (daysDiff <= 60)
+                {
+                    results.Add(opp);
+                    ViewData.Model = results.AsEnumerable();
+
+                }
+                else
+                {
+
+                }
+            }
+            if (results.Count == 0)
+            {
+                TempData["MethodResult"] = "There were no opportunitites posted within the past 60 days.";
+                return View("ManageOpportunities");
+            }
+            TempData["MethodResult"] = "You are viewing of the opportunitites posted within the past 60 days.";
+            ViewData.Model = results.AsEnumerable();
+            return View("ManageOpportunities");
+        }
+
+        [HttpGet]
+        public ActionResult OpportunityMatches(int id)
+        {
+            Volunteer findVolOpp = _volunteerRepository.GetVolunteer(id);
+            List<Opportunity> results = new List<Opportunity>();
+            IEnumerable<Opportunity> oppList = _opportunityRepository.GetAllOpportunities();
+
+            foreach (Opportunity opp in oppList)
+            {
+                if (opp.oppCenter == findVolOpp.CenterPreferences)
+                {
+                    results.Add(opp);
+
+                }
+                else
+                {
+
+                }
+            }
+
+            if (results.Count == 0)
+            {
+                TempData["error"] = "Opportunity match not found.";
+                return RedirectToAction("ManageVolunteers");
+            }
+            else
+            {
+
+                var finalResults = new OpportunityMatchesView { _volunteer = findVolOpp, _opportunityList = results };
+                return View(finalResults);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult VolunteerMatches(int id)
+        {
+            Opportunity findopp = _opportunityRepository.GetOpportunity(id);
+            List<Volunteer> results = new List<Volunteer>();
+            IEnumerable<Volunteer> volList = _volunteerRepository.GetAllVolunteers();
+
+            foreach (Volunteer vol in volList)
+            {
+                if (vol.CenterPreferences == findopp.oppCenter)
+                {
+                    results.Add(vol);
+
+                }
+                else
+                {
+
+                }
+            }
+
+            if (results.Count == 0)
+            {
+                TempData["error"] = "Volunteer match not found.";
+                return RedirectToAction("ManageOpportunities");
+            }
+            else
+            {
+
+                var finalResults = new VolunteerMatchesView { opportunity = findopp, _volunteerList = results };
+                return View(finalResults);
+            }
+        }//working
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

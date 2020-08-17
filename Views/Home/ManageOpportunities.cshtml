@@ -1,47 +1,101 @@
-﻿@model IEnumerable<PreSemester_Project.Models.Opportunity>
+@model IEnumerable<PreSemester_Project.Models.Opportunity>
+
 
 @{
-    ViewData["Title"] = "ManageOpportunities";
+    ViewData["Title"] = "Manage Opportunities";
 }
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/Pages.css" asp-append-version="true" />   <!--Add css -->
+</head>
+<div class="header">
+    <img src="~/Images/BitworksLogo.png" id="header-img" />
+    <h2>Manage Opportunities</h2>
+</div>
 
-<h1>ManageOpportunities</h1>
+<p class="text-warning">@TempData["error"]</p>
+<p class="text-warning">@TempData["MethodResult"]</p>
 
-<p>
-    <a asp-action="CreateOpportunity">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.oppID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.oppName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.oppCenter)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.oppID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.oppName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.oppCenter)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditOpportunity", new {oppID=item.oppID}) |
-                @Html.ActionLink("Details", "oppDetails", new {oppID=item.oppID}) |
-                @Html.ActionLink("Delete", "DeleteOpportunity", new {oppID=item.oppID})
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="table-with-content">
+    <p>
+        <a asp-action="CreateOpportunity">Create New Opportunity</a>
+    </p>
+    <p>
+        <a asp-action="FilterPosted">Posted within the last 60 days</a>
+    </p>
+    <form method="get" asp-action="SearchOpportunity" style="float:left">
+        <table>
+            <tr>
+                <td><input type="text" placeholder="Keywords" name="Key" class="form-control" /> </td>
+                <td><input type="submit" value="Search" class="btn btn-primary"></td>
+            </tr>
+        </table>
+    </form>
+    <form method="get" asp-action="FilterCenter" style="float:right">
+        <table>
+            <tr>
+                <td>
+                    <select name="center" id="center" class="form-control">
+                        <option value="All">All</option>
+                        <option value="Jacksonville Location">Jacksonville Location</option>
+                        <option value="Miami Location">Miami Location</option>
+                        <option value="St. Petersburg Location">St. Petersburg Location</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="submit" value="Filter" class="btn btn-primary" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.oppName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.oppCenter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.datePosted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TimeOfEvent)
+                </th>
+                <th width="33%">
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.oppName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.oppCenter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.datePosted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeOfEvent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditOpportunity", new { oppID = item.oppID }) |
+                    @Html.ActionLink("Details", "oppDetails", new { oppID = item.oppID }) |
+                    @Html.ActionLink("Delete", "DeleteOpportunity", new { oppID = item.oppID }) |
+                    @Html.ActionLink("Volunteer Matches", "VolunteerMatches", new { id = item.oppID })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

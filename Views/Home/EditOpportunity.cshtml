@@ -3,41 +3,58 @@
 @{
     ViewData["Title"] = "EditOpportunity";
 }
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/css/Pages.css" asp-append-version="true" />
+</head>
 
-<h1>EditOpportunity</h1>
+<div class="header">
+    <img src="~/Images/BitworksLogo.png" id="header-img" />
+    <h2>Edit an Opportunity</h2>
+</div>
+<div style="padding-top: 10%">
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="EditOpportunity">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input type="hidden" asp-for="oppID" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="oppName" class="control-label"></label>
+                    <input asp-for="oppName" class="form-control" />
+                    <span asp-validation-for="oppName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="oppCenter" class="control-label"></label>
+                    <select asp-for="oppCenter" class="form-control" value="@Model.oppCenter">
+                        <option value="Jacksonville Location">Jacksonville Location</option>
+                        <option value="Miami Location">Miami Location</option>
+                        <option value="St. Petersburg Location">St. Petersburg Location</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TimeOfEvent" class="control-label"></label>
+                    <input asp-for="TimeOfEvent" class="form-control" value="@Model.TimeOfEvent" />
+                    <span asp-validation-for="TimeOfEvent" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="description" class="control-label"></label>
+                    <input asp-for="description" class="form-control" value="@Model.description" />
+                    <span asp-validation-for="description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
 
-<h4>Opportunity</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="EditOpportunity">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="oppID" class="control-label"></label>
-                <input asp-for="oppID" class="form-control" />
-                <span asp-validation-for="oppID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="oppName" class="control-label"></label>
-                <input asp-for="oppName" class="form-control" />
-                <span asp-validation-for="oppName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="oppCenter" class="control-label"></label>
-                <input asp-for="oppCenter" class="form-control" />
-                <span asp-validation-for="oppCenter" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <div>
+        <a asp-action="ManageOpportunities">Back to Opportunities</a>
     </div>
 </div>
-
-<div>
-    <a asp-action="ManageOpportunities">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

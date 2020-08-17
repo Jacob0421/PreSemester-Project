@@ -1,7 +1,60 @@
-﻿
+@model IEnumerable<PreSemester_Project.Models.Opportunity>
 @{
     ViewData["Title"] = "SearchOppResults";
 }
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/Pages.css" asp-append-version="true" />
 
-<h1>SearchOppResults</h1>
+</head>
+
+
+<div class="header">
+    <img src="~/Images/BitworksLogo.png" id="header-img" />
+    <h2>Manage Opportunities</h2>
+</div>
+
+<h1>Search Results</h1>
+<div style=" padding-top: 10%;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.oppCenter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.oppName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TimeOfEvent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oppName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { oppID = item.oppID }) |
+                        @Html.ActionLink("Details", "Details", new { oppID = item.oppID }) |
+                        @Html.ActionLink("Delete", "Delete", new { oppID = item.oppID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a asp-action="Manageopportunities">Back to Opportunities</a>
+    </div>
+</div>
+
 
