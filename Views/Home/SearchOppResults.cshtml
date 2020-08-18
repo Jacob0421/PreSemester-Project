@@ -10,11 +10,11 @@
 
 <div class="header">
     <img src="~/Images/BitworksLogo.png" id="header-img" />
-    <h2>Manage Opportunities</h2>
+    <h2>Volunteer Management System</h2>
 </div>
 
 <h1>Search Results</h1>
-<div style=" padding-top: 10%;">
+<div class="table-with-content">
     <table class="table">
         <thead>
             <tr>
@@ -30,7 +30,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.address)
                 </th>
-                <th>
+                <th style="width: 33%">
                     @Html.DisplayNameFor(model => model.description)
                 </th>
                 <th></th>
@@ -41,7 +41,19 @@
             {
                 <tr>
                     <td>
+                        @Html.DisplayFor(modelItem => item.oppCenter)
+                    </td>                    
+                    <td>
                         @Html.DisplayFor(modelItem => item.oppName)
+                    </td>                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeOfEvent)
+                    </td>                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.address)
+                    </td>                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { oppID = item.oppID }) |
