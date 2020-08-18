@@ -18,14 +18,16 @@ namespace PreSemester_Project.Controllers
 
         /*
          * 
-         * Tentative process using the site
+         * Class: CIS 4327 - Information Systems Senior Project 1
+         * Fall 2020
          * 
-         * WILL UPDATE THIS AS WE MOVE ON IN THE PROJECT:
+         * Group: BitWorks
          * 
-         * 1.) Index (Login page) -Done
-         * 2.) Login() (Login Validation) => Landing -Done
-         * 3.) Landing Page => Add_Volunteers => AddVolunteers() OR Landing Page => Search Results Page => Edit Page (Maybe pop-up) => Landing Page
-         * 
+         * Authors:
+         * Harrison Do
+         * Gabrielle Eurillo
+         * Benton Lamlein
+         * Jacob Roberts
          * 
          */
 
@@ -51,9 +53,6 @@ namespace PreSemester_Project.Controllers
         public IActionResult Login(IFormCollection Form)
 
         {
-            //LOGIN FORM VALIDATION IS WORKING...
-            // WILL UNCOMMENT TOWARDS END OF PROJECT
-            //return RedirectToAction("Options");
 
             /// taking in login form from index.cshtml and gathering variables
             string username = (Form["UserName"].ToString());
