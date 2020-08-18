@@ -3,20 +3,22 @@
 @{
     ViewData["Title"] = "OpportunityMatches";
 }
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/css/Pages.css" asp-append-version="true" />
+</head>
 
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="~/css/Pages.css" asp-append-version="true" />
-    </head>
+<div class="header">
+    <img src="~/Images/BitworksLogo.png" id="header-img" />
+    <h2>Volunteer Management System</h2>
+</div>
+<div style="padding-top: 10%">
+    <h1>Opportunity Matches</h1>
+    <br />
+    <br />
 
-    <div class="header">
-        <img src="~/Images/BitworksLogo.png" id="header-img" />
-        <h2>Volunteer Management System</h2>
-    </div>
-<br />
-<br />
-<div style="padding-top: 10%;">
-    <p>These are the opportunity matches  for @Model._volunteer.FirstName @Model._volunteer.LastName</p>
+
+    <p>These are the opportunity matches @Model._volunteer.FirstName @Model._volunteer.LastName</p>
     <p>Center Preferences: @Model._volunteer.CenterPreferences</p>
 
     <br />

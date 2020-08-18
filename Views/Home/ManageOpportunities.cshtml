@@ -9,13 +9,17 @@
 </head>
 <div class="header">
     <img src="~/Images/BitworksLogo.png" id="header-img" />
-    <h2>Manage Opportunities</h2>
+    <h2 class="text-center">Volunteer Management System</h2>
+    <a asp-action="Logout"><strong class="logout">logout</strong></a>
+
 </div>
 
-<p class="text-warning">@TempData["error"]</p>
-<p class="text-warning">@TempData["MethodResult"]</p>
+
 
 <div class="table-with-content">
+    <p class="text-danger">@TempData["error"]</p>
+    <p class="text-warning">@TempData["MethodResult"]</p>
+
     <p>
         <a asp-action="CreateOpportunity">Create New Opportunity</a>
     </p>
@@ -30,7 +34,7 @@
             </tr>
         </table>
     </form>
-    <form method="get" asp-action="FilterCenter" style="float:right">
+    <form method="get" asp-action="FilterCenter" style="float:right; padding-right: 10%;">
         <table>
             <tr>
                 <td>
@@ -48,7 +52,7 @@
         </table>
     </form>
 
-    <table class="table">
+    <table class="table" style="width: 90%;">
         <thead>
             <tr>
                 <th>
@@ -72,30 +76,34 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.oppName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.oppCenter)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.datePosted)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimeOfEvent)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.description)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditOpportunity", new { oppID = item.oppID }) |
-                    @Html.ActionLink("Details", "oppDetails", new { oppID = item.oppID }) |
-                    @Html.ActionLink("Delete", "DeleteOpportunity", new { oppID = item.oppID }) |
-                    @Html.ActionLink("Volunteer Matches", "VolunteerMatches", new { id = item.oppID })
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oppName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oppCenter)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.datePosted)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeOfEvent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditOpportunity", new { oppID = item.oppID }) |
+                        @Html.ActionLink("Details", "oppDetails", new { oppID = item.oppID }) |
+                        @Html.ActionLink("Delete", "DeleteOpportunity", new { oppID = item.oppID }) |
+                        @Html.ActionLink("Volunteer Matches", "VolunteerMatches", new { id = item.oppID })
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
+    <br />
+    <form asp-action="Options" method="get">
+        <input type="submit" value="Return to Options" class="btn btn-primary"/>
+    </form>
 </div>

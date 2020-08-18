@@ -1,9 +1,8 @@
 ﻿@model PreSemester_Project.Models.Volunteer
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "MyDetails";
 }
-
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="~/css/Pages.css" asp-append-version="true" />
@@ -12,10 +11,11 @@
 <div class="header">
     <img src="~/Images/BitworksLogo.png" id="header-img" />
     <h2>Volunteer Management System</h2>
-</div>
+    <a asp-action="Logout"><strong class="logout">logout</strong></a>
 
-<div style="padding-top: 10%;">
-    <h1>Details</h1>
+</div>
+<div style="padding-top: 10%">
+    <h1>MyDetails</h1>
 
     <div>
         <h4>Volunteer</h4>
@@ -174,7 +174,7 @@
         </dl>
     </div>
     <div>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-        <a asp-action="ManageVolunteers">Back to Volunteers</a>
+        @Html.ActionLink("Edit", "EditMyDetails", new { id = Model.id }) |
+        <a asp-action="VolunteerOptions">Back to Options</a>
     </div>
 </div>

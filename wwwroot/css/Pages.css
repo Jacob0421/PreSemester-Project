@@ -28,3 +28,9 @@
     position: absolute;
     top: 10%;
 }
+
+.logout{
+    position: absolute;
+    top: 5%;
+    right: 10%;
+}

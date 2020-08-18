@@ -10,7 +10,7 @@
 
 <div class="header">
     <img src="~/Images/BitworksLogo.png" id="header-img" />
-    <h2>Edit an Opportunity</h2>
+    <h2>Volunteer Management System</h2>
 </div>
 <div style="padding-top: 10%">
     <hr />
@@ -45,7 +45,9 @@
                     <span asp-validation-for="description" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <input type="submit" value="Save" name="submit" class="btn btn-primary" />
+                    <input type="submit" value="Cancel" name="submit" class="btn btn-primary" style="float: right;" formnovalidate/>
+
                 </div>
             </form>
         </div>

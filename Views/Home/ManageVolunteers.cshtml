@@ -9,7 +9,7 @@
 <div class="header">
     <img src="~/Images/BitworksLogo.png" id="header-img" />
     <h2>Volunteer Management System</h2>
-</div>
+    <a asp-action="Logout"><strong class="logout">logout</strong></a></div>
 <div class="table-with-content">
     <p>
         <a asp-action="Create">Create New Volunteer</a>
@@ -108,4 +108,7 @@
             }
         </tbody>
     </table>
+    <form asp-action="Options" method="get">
+        <input type="submit" value="Return to Options" class="btn btn-primary" />
+    </form>
 </div>

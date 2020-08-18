@@ -1,0 +1,29 @@
+﻿@model PreSemester_Project.Models.Volunteer;
+
+@{
+    ViewData["Title"] = "Options";
+}
+
+<DOCTYPE! html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="~/css/Pages.css" asp-append-version="true" />
+    </head>
+
+
+    <body>
+        <div class="header">
+            <img src="~/Images/BitworksLogo.png" id="header-img" />
+            <h2>Volunteer Management System</h2>
+        </div>
+        <div style="padding-top: 10%">
+            <form asp-controller="Home" method="get">
+                <p>What would you like to do today?</p>
+                <input type="hidden" name="id" value="@Model.id" />
+                <input type="submit" value="View Opportunity Matches" formaction="OpportunityMatches">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="View Your Info" formaction="MyDetails">
+            </form>
+        </div>
+    </body>
+</html>
